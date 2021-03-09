@@ -1,18 +1,19 @@
-# Nome do projeto
+# Teorema Prepara
 
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* André Luis da Silva
+* Arthur Bicalho Lana Corrêa Fernandes
+* Érika Márcia Pereira Sardinha
+* Guilherme Julio Silva dos Santos
+* Ítalo Lélis de Carvalho
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Eveline Alonso Veloso
+* Juliana Amaral Baroni de Carvalho
 
 ## Instruções de utilização
 
