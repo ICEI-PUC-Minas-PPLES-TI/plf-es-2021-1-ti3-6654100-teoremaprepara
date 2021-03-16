@@ -5,9 +5,6 @@
 <h1 align="center"> Teorema Preparatório </h1>
 
 <p align="center">
-  <a href="https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti3-6654100-teoremaprepara/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ICEI-PUC-Minas-PPLES-T/plf-es-2021-1-ti3-6654100-teoremaprepara/">
-  </a>
   <img alt="License" src="https://img.shields.io/badge/license-CC--BY--4.0-blue">	
 </p>
 
