@@ -12,7 +12,6 @@
 
 
 <br>
-<hr>
 
 <h2>Fevereiro</h2>
 
