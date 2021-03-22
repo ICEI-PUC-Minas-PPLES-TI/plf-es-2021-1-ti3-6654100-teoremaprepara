@@ -44,7 +44,7 @@
 - [Atas de Reunião com o Cliente](/Artefatos/Atas)
 - [Documento de Visão](/Documentacao/Documento-de-Visao.pdf)
 - [Interface de Usuário](/Documentacao/Interface-de-Usuario.pdf)
-- [Planilha de Planejamento do Sprint](/Documentacao/Interface-de-Usuario.pdf)
+- [Planilha de Planejamento do Sprint (Excel)](/Artefatos/Sprints TIS III-noite.xlsx)
 - [Planejamento de cada Sprint individual (PDF)](/Documentacao/Interface-de-Usuario.pdf)
 
 <br>
