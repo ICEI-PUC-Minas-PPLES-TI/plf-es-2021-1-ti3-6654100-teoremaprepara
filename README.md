@@ -45,6 +45,7 @@
 - [Documento de Visão](/Documentacao/Documento-de-Visao.pdf)
 - [Interface de Usuário](/Documentacao/Interface-de-Usuario.pdf)
 - [Planilha de Planejamento do Sprint](/Documentacao/Interface-de-Usuario.pdf)
+- [Planejamento de cada Sprint individual (PDF)](/Documentacao/Interface-de-Usuario.pdf)
 
 <br>
 
