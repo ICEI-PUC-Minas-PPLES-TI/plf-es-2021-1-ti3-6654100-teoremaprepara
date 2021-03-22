@@ -39,6 +39,22 @@
 
 <br>
 
+## Documentos
+
+- [Atas de Reunião com o Cliente](/Artefatos/Atas)
+- [Documento de Visão](/Documentacao/Documento-de-Visao.pdf)
+
+<h2>Documentos</h2>
+
+<p>
+  <ul>
+    <li>Eveline Alonso Veloso</li>
+    <li>Juliana Amaral Baroni de Carvalho</li>
+  </ul>
+</p>
+
+<br>
+
 <h2> Instruções de utilização </h2>
 
 <p>
