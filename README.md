@@ -42,8 +42,8 @@
 ## Documentos
 
 - [Atas de Reunião com o Cliente](/Artefatos/Atas)
-- [Documento de Visão](/Documentacao/Documento-de-Visao.pdf)
-- [Interface de Usuário](/Documentacao/Interface-de-Usuario.pdf)
+- [Documento de Visão](/Artefatos/Documento-de-Visao.pdf)
+- [Interface de Usuário](/Artefatos/Interface-de-Usuario.pdf)
 - [Planilha de Planejamento do Sprint (Excel)](/Artefatos/Sprints-TIS-III-noite.xlsx)
 - [Planejamento de cada Sprint individual (PDF)](/Artefatos/Sprints)
 - [Casos de Uso](/Artefatos/Casos-de-Uso.pdf)
