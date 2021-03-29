@@ -46,6 +46,7 @@
 - [Interface de Usuário](/Documentacao/Interface-de-Usuario.pdf)
 - [Planilha de Planejamento do Sprint (Excel)](/Artefatos/Sprints-TIS-III-noite.xlsx)
 - [Planejamento de cada Sprint individual (PDF)](/Artefatos/Sprints)
+- [Casos de Uso](/Artefatos/Casos-de-Uso.pdf)
 
 <br>
 
