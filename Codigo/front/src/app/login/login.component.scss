@@ -1,0 +1,56 @@
+@import "../app.component.scss";
+#fundo{
+    height: 100%;
+    width: 70%;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    
+}
+#fundo > img{
+    height: 80vh;
+    margin-top: 5%;
+}
+#corpo{
+    display: flex;
+    //justify-content: center;
+    
+}
+#formulario{
+    width: 25%;
+    margin-top: 2%;
+    align-items: center;
+    text-align: center;
+    
+}
+
+#formulario > img{
+    width: 15vw;
+    margin-bottom: 15%;
+}
+.button{
+    margin-top: 5vh !important;
+    background-color: #9f55ad;
+    margin: 0 auto;
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+
+}
+mat-form-field.mat-form-field {
+    font-size: 16px;
+}
+span{
+    margin-top: 2vh;
+    font-size: 1.5em;
+    color: #000000a8;
+
+}
+.button:hover{
+    background-color: #842397;
+    transition: 1s;
+    transform: translateY(-5px);
+}
+
