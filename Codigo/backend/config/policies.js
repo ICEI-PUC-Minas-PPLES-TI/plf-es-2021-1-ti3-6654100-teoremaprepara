@@ -10,10 +10,14 @@
 
 module.exports.policies = {
 
-  '*': 'is-logged-in',
+  '*': 'is-logged-in',     //as solicitações de todas rotas devem vir de usuario autenticado.
+
+  'entrance/signup' : 'is-super-admin', //a solicitação de signup deve vir de um usuario administrador.
+
+  //Se true, irão ignorar a politca, se false não vão ignorar.
 
   // Bypass the `is-logged-in` policy for:
-  'entrance/*': true,
+  'entrance/*': true, 
   'account/logout': true,
   'view-homepage-or-redirect': true,
   'view-faq': true,
