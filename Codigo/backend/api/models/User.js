@@ -1,5 +1,3 @@
-var uuid = require('node-uuid');
-
 
 module.exports = {
   tableName : '<nome-da-tabela-no-banco>', 
@@ -31,7 +29,7 @@ module.exports = {
       required: true,
       description: 'Nome completo do usuario',
       maxLength: 120,
-      example: 'Guilherme Julio',
+      example: 'Karl Marx de Jesus',
       columnName: '<nome-da-coluna-no-banco>',
     },
 
