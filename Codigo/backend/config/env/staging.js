@@ -79,7 +79,8 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
   security: {
     cors: {
       allowOrigins: [
-        'http://localhost:1337',
+        'http://localhost:4200',
+        'https://teorematest.netlify.app',
       ]
     },
 
