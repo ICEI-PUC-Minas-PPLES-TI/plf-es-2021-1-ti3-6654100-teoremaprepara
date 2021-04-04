@@ -29,13 +29,20 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
 
   datastores: Object.assign({}, PRODUCTION_CONFIG.datastores, {
     default: Object.assign({}, PRODUCTION_CONFIG.datastores.default, {
-      // url: 'mysql://shared:some_password_everyone_knows@db.example.com:3306/my_staging_db',
+      adapter: 'sails-postgresql',
+      url: process.env.DATABASE_URL,
+      ssl: true, // SSL required for Heroku
       //--------------------------------------------------------------------------
       // /\  Hard-code your staging db `url`.
       // ||  (or use system env var: `sails_datastores__default__url`)
       //--------------------------------------------------------------------------
     })
   }),
+
+  // Trust Proxy when running from Heroku
+  http: {
+    trustProxy: true,
+  },
 
   sockets: Object.assign({}, PRODUCTION_CONFIG.sockets, {
 
@@ -68,6 +75,15 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
     // ||  (or use system env var: `sails_session__url`)
     //--------------------------------------------------------------------------
   }),
+
+  security: {
+    cors: {
+      allowOrigins: [
+        'http://localhost:1337',
+      ]
+    },
+
+  },
 
   custom: Object.assign({}, PRODUCTION_CONFIG.custom, {
 
