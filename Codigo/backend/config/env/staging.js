@@ -81,6 +81,7 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
       allowOrigins: [
         'http://localhost:4200',
         'https://teorematest.netlify.app',
+        'https://teoremapreparatorio.netlify.app/',
       ]
     },
 
