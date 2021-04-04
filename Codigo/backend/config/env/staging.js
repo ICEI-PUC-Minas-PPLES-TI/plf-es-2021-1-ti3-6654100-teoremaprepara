@@ -44,11 +44,6 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
     trustProxy: true,
   },
 
-  // Update database model on Heroku
-  models: {
-    migrate: 'alter',
-  },
-
   sockets: Object.assign({}, PRODUCTION_CONFIG.sockets, {
 
     onlyAllowOrigins: [
