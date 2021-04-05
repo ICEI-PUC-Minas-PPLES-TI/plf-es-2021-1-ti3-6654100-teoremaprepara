@@ -6,10 +6,7 @@
 
 <p align="center">
   <img alt="License" src="https://img.shields.io/badge/license-CC--BY--4.0-blue">	
-</p>
-
-<p align="center">
-    Back-End <img alt="Heroku" src="https://heroku-badge.herokuapp.com/?app=teorema-prepara">
+  <img alt="Heroku" src="https://heroku-badge.herokuapp.com/?app=teorema-prepara">
 </p>
 
 <p align="center">
