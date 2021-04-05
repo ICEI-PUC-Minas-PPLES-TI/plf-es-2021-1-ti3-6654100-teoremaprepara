@@ -65,7 +65,7 @@
   Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 <p>
 
-### Back-End [📂](/Codigo/backend/) ![Heroku](https://heroku-badge.herokuapp.com/?app=teorema-prepara)
+### Back-End [📂](/Codigo/backend/) &nbsp; &nbsp; &nbsp; ![Heroku](https://heroku-badge.herokuapp.com/?app=teorema-prepara)
 
 Para a API Web, está sendo utilizado o framework MVC [Sails.js](https://sailsjs.com/). Para rodá-lo localmente na sua máquina, será necessário instalar a última versão LTS (no momento, v14.16) do [Node.js](https://nodejs.org/en/).
 
