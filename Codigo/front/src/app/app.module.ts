@@ -9,7 +9,6 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
-import { HttpClientModule, } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { HttpClientModule, } from '@angular/common/http';
     FormsModule,
     MatInputModule,
     MatIconModule,
-    LoginModule,
-    HttpClientModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
