@@ -12,6 +12,7 @@ import { LoginModule } from './login/login.module';
 import {MatDialogModule} from '@angular/material/dialog';
 
 
+import { HttpClientModule, } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatIconModule,
     LoginModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

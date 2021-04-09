@@ -4,21 +4,26 @@
     </div>
     <div id="formulario">
         <img src="../../assets/logoTeorema.png" alt="">
-        <form>
+        <!--h1>Acesse sua conta</h1-->
+        <form [formGroup]="form">
             
             <mat-form-field appearance="outline">
               <mat-label>E-mail</mat-label>
-              <input matInput>
-              <mat-hint></mat-hint>
+              <input matInput  formControlName="email" required>
+              <mat-error *ngIf="form.get('email')?.invalid">Email invalido</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label>Senha</mat-label>
-              <input matInput>
+              <input matInput formControlName="senha" [type]="hide ? 'password' : 'text'" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="form.get('senha')?.invalid">Senha invalida</mat-error>
               <mat-hint></mat-hint>
             </mat-form-field>
-            
-            <div class="button">Conecte-se</div>
+
+            <div class="button" (click)="login()">Conecte-se</div>
 
             <button class="redefinir-senha" mat-button (click)="addSenha()">Esqueci minha senha</button>
 

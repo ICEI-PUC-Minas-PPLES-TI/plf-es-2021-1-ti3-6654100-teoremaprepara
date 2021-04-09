@@ -6,6 +6,7 @@
 
 <p align="center">
   <img alt="License" src="https://img.shields.io/badge/license-CC--BY--4.0-blue">	
+  <img alt="Heroku" src="https://heroku-badge.herokuapp.com/?app=teorema-prepara">
 </p>
 
 <p align="center">
@@ -50,8 +51,41 @@
 
 <br>
 
-<h2> Instruções de utilização </h2>
+## Acesso à Aplicação
+
+### Ambiente de Teste (staging)
+- Web App (Netlify): https://teoremapreparatorio.netlify.app/
+- API (Heroku): https://teorema-prepara.herokuapp.com/
+
+<br>
+
+## Instruções de utilização
 
 <p>
   Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 <p>
+
+### Back-End [📂](/Codigo/backend/) &nbsp; &nbsp; &nbsp; ![Heroku](https://heroku-badge.herokuapp.com/?app=teorema-prepara)
+
+Para a API Web, está sendo utilizado o framework MVC [Sails.js](https://sailsjs.com/). Para rodá-lo localmente na sua máquina, será necessário instalar a última versão LTS (no momento, v14.16) do [Node.js](https://nodejs.org/en/).
+
+Instruções para instalação e execução:
+```sh
+# Clonar repositório do GitHub
+git clone https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti3-6654100-teoremaprepara.git
+
+# Acessar repositório recém baixado
+cd plf-es-2021-1-ti3-6654100-teoremaprepara
+
+# Acessar pasta do projeto
+cd Codigo/backend
+
+# Executar API Web (pressione Ctrl+C para encerrar)
+npm run dev
+```
+
+O ambiente de teste da aplicação e o banco de dados de teste estão hospedados no Heroku. Para atualizar a versão do API no Heroku, na pasta `/Codigo/back`, execute o script de deploy com o comando:
+```sh
+chmod +x ./deploy_heroku.sh
+./deploy_heroku.sh
+```
