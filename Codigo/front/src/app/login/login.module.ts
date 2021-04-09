@@ -6,6 +6,9 @@ import { MatFormField } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatIconModule} from '@angular/material/icon';
+import { RedefinirSenhaComponent } from './redefinir-senha/redefinir-senha.component';
+import { MatDialogModule } from "@angular/material/dialog";
+
 const routes = [
   {
       path: '',
@@ -15,14 +18,16 @@ const routes = [
 
 @NgModule({
   declarations: [
-    LoginComponent
-  ],
+    LoginComponent,
+    RedefinirSenhaComponent
+    ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     MatInputModule,
     MatIconModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatDialogModule
   ]
 })
 export class LoginModule { }

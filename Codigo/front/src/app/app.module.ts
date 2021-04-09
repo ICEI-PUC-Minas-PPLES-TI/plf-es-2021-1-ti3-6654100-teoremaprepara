@@ -9,6 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { LoginModule } from './login/login.module';
     FormsModule,
     MatInputModule,
     MatIconModule,
-    LoginModule
+    LoginModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

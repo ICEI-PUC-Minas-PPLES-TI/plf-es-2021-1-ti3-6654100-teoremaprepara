@@ -54,7 +54,16 @@ span{
     transform: translateY(-5px);
 }
 
-@media screen and  (min-width: 350px) and (max-width: 1000px){
+.redefinir-senha{
+    border:none;
+    background-color: white;
+    text-decoration: none;
+    width: 8vw;
+    cursor: pointer;
+    
+}
+
+@media screen and  (min-width: 350px) and (max-width: 700px){
 
     #corpo{
         display: block;
@@ -67,7 +76,36 @@ span{
     }
 
     #formulario > img {
-        width: auto;
+        width: 50vw;
+    }
+
+    #formulario{
+        width: 50vw;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .button{
+        width: 50vw;
+        height: 7vh;
+    }
+}
+
+@media screen and  (min-width: 700px) and (max-width: 999px){
+
+    #corpo{
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #fundo > img{
+        display: none;
+    }
+
+    #formulario > img {
+        width: 40vw;
     }
 
     #formulario{
@@ -79,6 +117,7 @@ span{
 
     .button{
         width: 30vw;
+        height: 7vh;
     }
 }
 
@@ -95,7 +134,7 @@ span{
     }
 
     #formulario > img {
-        width: 20vw;
+        width: 30vw;
     }
 
     #formulario{
@@ -107,6 +146,7 @@ span{
 
     .button{
         width: 30vw;
+        height: 7vh;
     }
 }
 
