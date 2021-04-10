@@ -21,7 +21,6 @@
     margin-top: 2%;
     align-items: center;
     text-align: center;
-    
 }
 
 #formulario > img{
@@ -37,11 +36,12 @@
 form{
     display: flex;
     flex-direction: column;
-
 }
+
 mat-form-field.mat-form-field {
     font-size: 16px;
 }
+
 span{
     margin-top: 2vh;
     font-size: 1.5em;
@@ -54,6 +54,63 @@ span{
     transform: translateY(-5px);
 }
 
+@media screen and  (min-width: 350px) and (max-width: 1000px){
+
+    #corpo{
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #fundo > img{
+        display: none;
+    }
+
+    #formulario > img {
+        width: auto;
+    }
+
+    #formulario{
+        width: 50vw;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .button{
+        width: 30vw;
+    }
+}
+
+@media screen and  (min-width: 1000px) and (max-width: 1500px){
+
+    #corpo{
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #fundo > img{
+        display: none;
+    }
+
+    #formulario > img {
+        width: 20vw;
+    }
+
+    #formulario{
+        width: 50vw;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .button{
+        width: 30vw;
+    }
+}
+
 h1{
     color: #656565;
 }
+
