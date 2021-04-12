@@ -32,10 +32,13 @@ module.exports = {
 
     // Find the record for this user.
     // (Even if no such user exists, pretend it worked to discourage sniffing.)
+    emailAddress = emailAddress.toLowerCase();
     var userRecord = await User.findOne({ emailAddress });
+
+    //Mesmo que o usario não exista, fingimos que ele exite para evitar sniffing.
     if (!userRecord) {
       return;
-    }//•
+    }//• 
 
     // Come up with a pseudorandom, probabilistically-unique token for use
     // in our password recovery email.
@@ -52,7 +55,7 @@ module.exports = {
     // Send recovery email
     await sails.helpers.sendTemplateEmail.with({
       to: emailAddress,
-      subject: 'Password reset instructions',
+      subject: 'Instruções para recuperação de senha',
       template: 'email-reset-password',
       templateData: {
         fullName: userRecord.fullName,
