@@ -1,0 +1,16 @@
+<div>
+    <div id="principal">
+        <div id="foto">
+            <mat-icon>person</mat-icon>
+        </div>
+        <p id="user">Filip Martin Jose</p>
+        <div class="button">Sair</div>
+        <div id="secundario">
+            <div>
+                <div class="opcao" *ngFor="let opcao of menu">
+                    <mat-icon> {{ opcao.icons }} </mat-icon><p> {{ opcao.opcao }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
