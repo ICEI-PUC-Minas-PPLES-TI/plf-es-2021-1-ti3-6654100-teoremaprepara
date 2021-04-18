@@ -2,15 +2,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
+import { MatCardModule } from '@angular/material/card';
+import { HeaderComponent } from './header/header.component';
 
 
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, HeaderComponent ],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
   ],
-  exports: [MenuComponent]
+  exports: [MenuComponent, HeaderComponent]
 })
 export class ComponentsModule { }
