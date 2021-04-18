@@ -28,14 +28,6 @@ password attempt.`,
       required: true
     },
 
-    rememberMe: {
-      description: 'Whether to extend the lifetime of the user\'s session.',
-      extendedDescription:
-`Note that this is NOT SUPPORTED when using virtual requests (e.g. sending
-requests over WebSockets instead of HTTP).`,
-      type: 'boolean'
-    }
-
   },
 
 
@@ -69,7 +61,9 @@ and exposed as \`req.me\`.)`
   },
 
 
-  fn: async function ({emailAddress, password, rememberMe}) {
+  fn: async function ({emailAddress, password}) {
+
+    const rememberMe = true;
 
     // Look up by the email address.
     // (note that we lowercase it to ensure the lookup is always case-insensitive,
@@ -113,6 +107,12 @@ and exposed as \`req.me\`.)`
     if (sails.hooks.sockets) {
       await sails.helpers.broadcastSessionChange(this.req);
     }
+
+
+    return {
+      emailAddress: userRecord.emailAddress,
+      role: userRecord.role,
+    };
 
   }
 
