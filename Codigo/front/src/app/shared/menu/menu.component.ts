@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
       icons: "article"
     }
   ];
+  @Input() user = "";
 
   constructor() { }
 

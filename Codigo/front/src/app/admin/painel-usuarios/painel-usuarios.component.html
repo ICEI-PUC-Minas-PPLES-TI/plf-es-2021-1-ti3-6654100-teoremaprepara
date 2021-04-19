@@ -12,38 +12,33 @@
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
 
-          <!-- ID Column -->
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
           </ng-container>
 
-          <!-- Progress Column -->
           <ng-container matColumnDef="progress">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Ações </th>
-            <td mat-cell *matCellDef="let row"> <mat-icon>edit</mat-icon><mat-icon id="delete">delete</mat-icon> </td>
+            <td mat-cell *matCellDef="let row"> <mat-icon (click)="openEdit(row.id, row.fullName, row.dataNascimento, row.telefone, row.rg, row.emailAddress, row.curso.id, row.curso.nome, row.turma, row.role, row.disciplinas)" matTooltip="Editar">edit</mat-icon><mat-icon id="delete" (click)="openDelet(row.id, row.fullName)"  matTooltip="Deletar">delete</mat-icon> </td>
           </ng-container>
 
-          <!-- Name Column -->
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de usuário </th>
-            <td mat-cell *matCellDef="let row"> professor </td>
+            <td mat-cell *matCellDef="let row"> {{row.role}} </td>
           </ng-container>         
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-          <!-- Row shown when there is no matching data. -->
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">Não existe "{{input.value}}"</td>
+            <td class="mat-cell no-data" colspan="4"><img src="../../../assets/no-data.png" alt=""></td>
           </tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[9,10, 25, 100]"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[7,10, 25, 100]"></mat-paginator>
       </div>
     </div>
   </mat-card>
-
-
-
+  
+  <div id="adicao" (click)="openAdd()"  matTooltip="Cadastrar"><mat-icon>person_add</mat-icon></div>
 </div>

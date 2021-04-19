@@ -1,0 +1,25 @@
+@import "../../../app.component.scss";
+#body{
+    height: 64vh;
+    width: 45vw;
+}
+.close{
+    background-color: #436E8E;
+}
+.icon, h3{
+    color: #436E8E;
+}
+form{
+    margin: 5vh 0;
+}
+form> div{
+    display: flex;
+}
+mat-form-field{
+    width: 100%;
+    height: 10vh;
+    margin: 0 10px;
+}
+#tipoUser{
+    width: 25%;
+}

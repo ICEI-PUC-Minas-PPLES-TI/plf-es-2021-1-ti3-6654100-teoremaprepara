@@ -8,9 +8,19 @@ import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { ComponentsModule } from 'src/app/shared/components.module';
 import { PainelUsuariosComponent } from './painel-usuarios.component';
+import { EditarComponent } from './editar/editar.component';
+import { DeletarComponent } from './deletar/deletar.component';
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes = [
   {
@@ -22,7 +32,10 @@ const routes = [
 
 @NgModule({
   declarations: [
-    PainelUsuariosComponent
+    PainelUsuariosComponent,
+    EditarComponent,
+    DeletarComponent,
+    CadastrarComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +48,14 @@ const routes = [
     MatTableModule,
     MatTabsModule,
     ComponentsModule,
+    MatDialogModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatTooltipModule
   ]
 })
 export class PainelUsuariosModule { }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +11,7 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule, } from '@angular/common/http';
 import { PainelSimuladosComponent } from './admin/painel-simulados/painel-simulados.component';
 import { ComponentsModule } from './shared/components.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,11 @@ import { ComponentsModule } from './shared/components.module';
     MatInputModule,
     MatIconModule,
     HttpClientModule,
+    MatTooltipModule,
     LoginModule,
-    ComponentsModule
+    ComponentsModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
