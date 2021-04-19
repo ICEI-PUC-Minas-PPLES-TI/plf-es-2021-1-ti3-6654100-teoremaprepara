@@ -31,8 +31,8 @@
     margin-top: 5vh !important;
     background-color: #9f55ad;
     margin: 0 auto;
-    
 }
+
 form{
     display: flex;
     flex-direction: column;
@@ -46,6 +46,7 @@ span{
     margin-top: 2vh;
     font-size: 1.5em;
     color: #000000a8;
+    cursor: pointer;
 
 }
 .button:hover{
@@ -60,10 +61,9 @@ span{
     text-decoration: none;
     width: 8vw;
     cursor: pointer;
-    
 }
 
-@media screen and  (min-width: 350px) and (max-width: 700px){
+@media screen and  (min-width: 350px) and (max-width: 1000px){
 
     #corpo{
         display: block;
@@ -76,7 +76,7 @@ span{
     }
 
     #formulario > img {
-        width: 50vw;
+        width: auto;
     }
 
     #formulario{
@@ -88,37 +88,21 @@ span{
 
     .button{
         width: 50vw;
-        height: 7vh;
+        height: 8vh;
     }
-}
 
-@media screen and  (min-width: 700px) and (max-width: 999px){
-
-    #corpo{
-        display: block;
+    form{
         align-items: center;
         justify-content: center;
     }
 
-    #fundo > img{
-        display: none;
+    span{
+        font-size: 19.8px;
     }
 
-    #formulario > img {
-        width: 40vw;
-    }
-
-    #formulario{
-        width: 50vw;
-        margin: auto;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .button{
-        width: 30vw;
-        height: 7vh;
-    }
+    .mat-form-field{
+        width: 80vw;
+      }
 }
 
 @media screen and  (min-width: 1000px) and (max-width: 1500px){
@@ -134,7 +118,7 @@ span{
     }
 
     #formulario > img {
-        width: 30vw;
+        width: 20vw;
     }
 
     #formulario{
@@ -146,7 +130,6 @@ span{
 
     .button{
         width: 30vw;
-        height: 7vh;
     }
 }
 

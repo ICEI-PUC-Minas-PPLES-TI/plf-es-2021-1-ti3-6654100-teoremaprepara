@@ -11,13 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
 import {MatDialogModule} from '@angular/material/dialog';
 
-
 import { HttpClientModule, } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

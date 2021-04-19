@@ -17,4 +17,8 @@ export class RedefinirSenhaComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  sair(): void {
+    this.dialogRef.close();
+  }
+
 }

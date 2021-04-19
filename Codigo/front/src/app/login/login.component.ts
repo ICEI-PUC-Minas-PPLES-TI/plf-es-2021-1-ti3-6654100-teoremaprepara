@@ -1,7 +1,7 @@
 import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { RedefinirSenhaComponent } from './redefinir-senha/redefinir-senha.component';
+import { RedefinirSenhaComponent } from './redefinir-senha-modal/redefinir-senha.component';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
