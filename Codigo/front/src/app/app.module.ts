@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { HttpClientModule, } from '@angular/common/http';
 import { PainelSimuladosComponent } from './admin/painel-simulados/painel-simulados.component';
 import { ComponentsModule } from './shared/components.module';
@@ -15,7 +17,7 @@ import { ComponentsModule } from './shared/components.module';
 @NgModule({
   declarations: [
     AppComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +25,9 @@ import { ComponentsModule } from './shared/components.module';
     FormsModule,
     MatInputModule,
     MatIconModule,
+    LoginModule,
+    MatDialogModule,
+    HttpClientModule
     HttpClientModule,
     LoginModule,
     ComponentsModule

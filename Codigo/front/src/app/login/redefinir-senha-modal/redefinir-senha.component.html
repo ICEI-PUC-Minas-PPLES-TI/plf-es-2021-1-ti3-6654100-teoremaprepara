@@ -1,0 +1,26 @@
+<div id="corpo">
+
+  <div id="cabecalho">
+    <mat-icon class="chave">vpn_key</mat-icon>
+    <span>
+      <mat-icon class="cancel" (click)="sair()">cancel</mat-icon>
+    </span>
+  </div>
+
+  <div id="dados">
+    <h1 class="redefinir-senha" mat-dialog-title>Redefinir senha</h1>
+    <hr>
+    <p>Digite seu endereço de e-mail para receber as instruções para redefinir sua senha</p>
+
+    <form>
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" required>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div id="enviar-email" mat-dialog-actions>
+    <a routerLink="/redefinir-senha-nova"><button class="botao" mat-button (click)="confirmar()">Confirmar</button></a>
+  </div>
+</div>

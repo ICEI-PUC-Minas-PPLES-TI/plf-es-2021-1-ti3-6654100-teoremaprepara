@@ -30,8 +30,10 @@
 .button{
     margin-top: 5vh !important;
     background-color: #9f55ad;
-    margin: 0 auto;  
+    margin: 0 auto;
+    margin: 0 auto;
 }
+
 form{
     display: flex;
     flex-direction: column;
@@ -45,12 +47,21 @@ span{
     margin-top: 2vh;
     font-size: 1.5em;
     color: #000000a8;
+    cursor: pointer;
 
 }
 .button:hover{
     background-color: #842397;
     transition: 1s;
     transform: translateY(-5px);
+}
+
+.redefinir-senha{
+    border:none;
+    background-color: white;
+    text-decoration: none;
+    width: 8vw;
+    cursor: pointer;
 }
 
 @media screen and  (min-width: 350px) and (max-width: 1000px){
@@ -77,8 +88,22 @@ span{
     }
 
     .button{
-        width: 30vw;
+        width: 50vw;
+        height: 8vh;
     }
+
+    form{
+        align-items: center;
+        justify-content: center;
+    }
+
+    span{
+        font-size: 19.8px;
+    }
+
+    .mat-form-field{
+        width: 80vw;
+      }
 }
 
 @media screen and  (min-width: 1000px) and (max-width: 1500px){
@@ -112,4 +137,5 @@ span{
 h1{
     color: #656565;
 }
+
 
