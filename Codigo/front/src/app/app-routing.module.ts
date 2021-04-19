@@ -8,7 +8,11 @@ const routes: Routes = [
   },
   {
     path: 'redefinir-senha-nova', component: RedefinirSenhaNovaComponent
-  }
+  },
+  {
+    path: 'adm/usuarios', loadChildren: () => import('./admin/painel-usuarios/painel-usuarios.module').then(m => m.PainelUsuariosModule)
+  },
+
 ];
 
 @NgModule({
