@@ -3,7 +3,6 @@
     height: 80%;
 }
 #principal{
-    margin: 2vh;
     height: 91vh;
     width:  18vw;
     border-radius: 15px;
@@ -36,11 +35,12 @@
 #foto >mat-icon{
     margin: 0 auto;
     font-size: 5rem;
+    width: 5vw;
+    height: 5vw;
     color: #BABABA;
     align-items: center;
     justify-content: center;
-    height: 80%;
-    width: 80%;
+    
 }
 .button{
     width: 6vw;

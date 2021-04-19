@@ -1,0 +1,29 @@
+
+#identificador{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-grow: 8;
+}
+
+#header{
+    display: flex;
+    justify-content: flex-end;
+}
+h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0px;
+}
+#img{
+    margin-right: 2vw;
+}
+img{
+    width: 14vw;
+}
+.mat-icon{
+    margin-right: 1vw;
+    width: 3vw;
+    height: 3vw;
+    font-size: 3vw;
+}
