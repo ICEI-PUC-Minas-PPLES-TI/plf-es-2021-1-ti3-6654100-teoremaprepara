@@ -40,7 +40,43 @@ the account verification message.)`,
       type: 'string',
       example: 'Frida Kahlo de Rivera',
       description: 'The user\'s full name.',
-    }
+    },
+
+    role:  {
+      required: true,
+      type: 'string',
+      isIn: ['coordenador', 'professor', 'aluno'],
+      example: 'aluno',
+      description: 'Cargo do usuário.',
+    },
+
+    curso:  {
+      required: false,
+      type: 'string',
+      example: 'aluno',
+      description: 'Curso que o aluno participa.',
+    },
+
+    disciplinas:  {
+      required: false,
+      type: ['number'],
+      example: [1,2,3],
+      description: 'Disciplinas que professor ministra.',
+    },
+
+    rg:  {
+      required: false,
+      type: 'string',
+      example: '000.000.00-00',
+      description: 'RG do usuário.',
+    },
+
+    dataNascimento:  {
+      required: false,
+      type: 'string',
+      example: '2000-12-31',
+      description: 'Aniversário do usuário.',
+    },
 
   },
 
@@ -66,14 +102,17 @@ the account verification message.)`,
   },
 
 
-  fn: async function ({emailAddress, password, fullName}) {
+  fn: async function ({emailAddress, password, fullName, role, curso, disciplinas, rg, dataNascimento}) {
 
-    var newEmailAddress = emailAddress.toLowerCase();
+    const newEmailAddress = emailAddress.toLowerCase();
 
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
-    var newUserRecord = await User.create(_.extend({
+    const newUserRecord = await User.create(_.extend({
       fullName,
+      dataNascimento,
+      rg,
+      role,
       emailAddress: newEmailAddress,
       password: await sails.helpers.passwords.hashPassword(password),
       tosAcceptedByIp: this.req.ip
@@ -86,26 +125,22 @@ the account verification message.)`,
     .intercept({name: 'UsageError'}, 'invalid')
     .fetch();
 
-    // If billing feaures are enabled, save a new customer entry in the Stripe API.
-    // Then persist the Stripe customer id in the database.
-    if (sails.config.custom.enableBillingFeatures) {
-      let stripeCustomerId = await sails.helpers.stripe.saveBillingInfo.with({
-        emailAddress: newEmailAddress
-      }).timeout(5000).retry();
-      await User.updateOne({id: newUserRecord.id})
-      .set({
-        stripeCustomerId
-      });
+    if (role === 'professor' && disciplinas && disciplinas.length > 0) {
+      await User.update({ emailAddress: newEmailAddress }, { disciplinas });
+    }
+
+    if (role === 'aluno' && curso) {
+      await User.update({ emailAddress: newEmailAddress }, { curso });
     }
 
     // Store the user's new id in their session.
-    this.req.session.userId = newUserRecord.id;
+    // this.req.session.userId = newUserRecord.id;
 
     // In case there was an existing session (e.g. if we allow users to go to the signup page
     // when they're already logged in), broadcast a message that we can display in other open tabs.
-    if (sails.hooks.sockets) {
-      await sails.helpers.broadcastSessionChange(this.req);
-    }
+    // if (sails.hooks.sockets) {
+    //   await sails.helpers.broadcastSessionChange(this.req);
+    // }
 
     if (sails.config.custom.verifyEmailAddresses) {
       // Send "confirm account" email

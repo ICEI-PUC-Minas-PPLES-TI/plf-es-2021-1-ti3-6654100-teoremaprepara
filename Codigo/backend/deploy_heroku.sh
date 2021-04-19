@@ -1,2 +1,2 @@
 cd ../..
-git subtree push --prefix Codigo/backend heroku master
+git push heroku `git subtree split --prefix Codigo/backend master`:master --force

@@ -1,3 +1,4 @@
+import { RedefinirSenhaNovaComponent } from './login/redefinir-senha-nova/redefinir-senha-nova.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PainelUsuariosComponent } from './admin/painel-usuarios/painel-usuarios.component';
@@ -10,6 +11,9 @@ const routes: Routes = [
     path: 'adm/usuarios', loadChildren: () => import('./admin/painel-usuarios/painel-usuarios.module').then(m => m.PainelUsuariosModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'redefinir-senha-nova', component: RedefinirSenhaNovaComponent
+  }
 
 
 ];

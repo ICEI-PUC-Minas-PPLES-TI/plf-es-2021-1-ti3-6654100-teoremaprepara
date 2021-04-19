@@ -1,5 +1,7 @@
 import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import { RedefinirSenhaComponent } from './redefinir-senha-modal/redefinir-senha.component';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -15,11 +17,23 @@ export class LoginComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _service: LoginService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.initForm();
+  }
+
+  addSenha(): void {
+    const dialogRef = this.dialog.open(RedefinirSenhaComponent, {
+      width: '40vw',
+      height: '50vh'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   initForm(){
