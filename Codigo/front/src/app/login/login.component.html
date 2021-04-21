@@ -22,9 +22,12 @@
               <mat-error *ngIf="form.get('senha')?.invalid">Senha invalida</mat-error>
               <mat-hint></mat-hint>
             </mat-form-field>
-            
+
             <div class="button" (click)="login()">Conecte-se</div>
-            <!--span>Esqueci minha senha</span-->
+
+<!--             <button class="redefinir-senha" mat-button (click)="addSenha()">Esqueci minha senha</button>
+ -->
+            <span (click)="addSenha()">Esqueci minha senha</span>
           </form>
     
     </div>    

@@ -1,0 +1,77 @@
+@import "../../app.component.scss";
+::ng-deep body{
+    height: 80%;
+}
+#principal{
+    height: 91vh;
+    width:  18vw;
+    border-radius: 15px;
+    background-color: #192038;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;  
+    position: relative;
+}
+#secundario{
+    //margin-top: 64%;
+    height: 59vh;
+    width: 18vw;
+    border-radius: 0 100px 15px 15px;
+    background-color: #1F2C4F;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+#foto{
+    margin: 0 auto;
+    height: 6vw;
+    width: 6vw;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    align-items: center;
+    display: flex;
+}
+#foto >mat-icon{
+    margin: 0 auto;
+    font-size: 5rem;
+    width: 5vw;
+    height: 5vw;
+    color: #BABABA;
+    align-items: center;
+    justify-content: center;
+    
+}
+.button{
+    width: 6vw;
+    height: 4vh;
+    font-size: 1.2rem;
+    margin-bottom: 7vh !important;
+    background-color: #5B5FFE;
+    border-radius: 25px;
+    margin: 0 auto;  
+}
+#user{
+    margin: 3vh 0;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+}
+.opcao{
+    display: flex;
+    font-size: 1.4rem;
+    color: aliceblue;
+    text-align: initial;
+    align-items: center;
+    margin-bottom: 5vh;
+    cursor: pointer;
+}
+#secundario > div{
+    margin-top: 3vh;
+    padding: 5vh;
+}
+.opcao > mat-icon{
+    padding: 0 15px;
+}
+.opcao> p{
+    margin: 0px;
+}

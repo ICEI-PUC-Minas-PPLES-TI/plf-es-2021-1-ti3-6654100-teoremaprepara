@@ -48,6 +48,7 @@
 - [Planilha de Planejamento do Sprint (Excel)](/Artefatos/Sprints-TIS-III-noite.xlsx)
 - [Planejamento de cada Sprint individual (PDF)](/Artefatos/Sprints)
 - [Casos de Uso](/Artefatos/Casos-de-Uso.pdf)
+- [Diagrama de Classes](/Artefatos/DiagramaDeClasses.pdf)
 
 <br>
 

@@ -1,0 +1,26 @@
+
+#body{
+    margin: 2vh;
+    display: flex;
+}
+mat-card{
+    margin: 0px 5vw;
+    width: 100%;
+}
+table {
+    width: 100%;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+  
+td, th, th.mat-header-cell {
+    width: 33%;
+    text-align: center;
+}
+#delete{
+    margin-left: 1vw;
+    color: #C70000;
+}
