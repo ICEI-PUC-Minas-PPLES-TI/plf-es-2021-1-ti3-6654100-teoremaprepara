@@ -12,15 +12,17 @@
     <hr>
     <p>Digite seu endereço de e-mail para receber as instruções para redefinir sua senha</p>
 
-    <form>
+    <form [formGroup]="form" (ngSubmit)="enviarEmail()" >
       <mat-form-field appearance="outline">
         <mat-label>E-mail</mat-label>
         <input matInput formControlName="email" required>
-      </mat-form-field>
+      </mat-form-field>-
+
+      <div id="enviar-email" mat-dialog-actions>
+         <button type="submit" class="botao" (click)="confirmar()" mat-button >Confirmar</button>
+      </div>
     </form>
   </div>
-
-  <div id="enviar-email" mat-dialog-actions>
-    <a routerLink="/redefinir-senha-nova"><button class="botao" mat-button (click)="confirmar()">Confirmar</button></a>
-  </div>
 </div>
+
+

@@ -2,11 +2,12 @@
 <div id="corpo">
   <div id="formulario">
     <img src="../../assets/logoTeorema.png" alt="">
-    <form>
+
+    <form [formGroup]="form" onSubmit="novaSenha()">
 
       <mat-form-field appearance="outline">
         <mat-label>Digite a nova senha</mat-label>
-        <input matInput formControlName="email" required>
+        <input matInput formControlName="senha" required>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -14,7 +15,7 @@
         <input matInput formControlName="senha" required>
       </mat-form-field>
 
-      <div class="button">Redefinir Senha</div>
+      <div type="submit" class="button">Redefinir Senha</div>
 
     </form>
 
