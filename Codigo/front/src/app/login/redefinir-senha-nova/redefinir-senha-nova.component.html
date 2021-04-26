@@ -12,10 +12,10 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Digite novamente a nova senha</mat-label>
-        <input matInput formControlName="senha" required>
+        <input matInput formControlName="confirmarSenha" required>
       </mat-form-field>
 
-      <div type="submit" class="button">Redefinir Senha</div>
+      <div type="submit" class="button" (click)="novaSenha()">Redefinir Senha</div>
 
     </form>
 

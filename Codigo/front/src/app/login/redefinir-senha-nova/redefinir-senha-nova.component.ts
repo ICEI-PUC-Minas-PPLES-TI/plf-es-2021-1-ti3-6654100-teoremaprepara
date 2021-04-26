@@ -1,6 +1,7 @@
 import { SenhaNovaService } from './../../services/senha-nova.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { stringify } from '@angular/compiler/src/util';
 @Component({
@@ -11,11 +12,11 @@ import { stringify } from '@angular/compiler/src/util';
 export class RedefinirSenhaNovaComponent implements OnInit {
 
   form: FormGroup;
-  route: any;
   
   constructor(
     private _service: SenhaNovaService,
-    private _formBuilder: FormBuilder) { }
+    private _formBuilder: FormBuilder,
+    private route: ActivatedRoute) { }
     
   ngOnInit(): void {
 
@@ -25,29 +26,44 @@ export class RedefinirSenhaNovaComponent implements OnInit {
 
   initForm() {
     this.form = this._formBuilder.group({
-      senha: [null]
+      senha: [null],
+      confirmarSenha: [null]
     })
   }
 
   novaSenha(){
 
-    this.route.queryParamMap.subscribe((params: any) => {
+    if(this.form.get("senha")?.value != this.form.get("confirmarSenha")?.value){
 
-      let password = this.form.get("senha")?.value
+      alert("Sua senha precisa ser igual nos dois campos!")
+      console.log("Sua senha não deu!")
 
-      let token = params.token
+    } else {
+
+      this.route.queryParamMap.subscribe((params: any) => {
+
+        let password = this.form.get("senha")?.value
   
-      let senha: any ={
-        senha: password,
-        token: token
-      }
+        let token = params.params.token
   
-      const senhaJSON = JSON.stringify(senha);
-      this._service.senhaNova(senhaJSON);
-  
-      const tokenJSON = JSON.stringify(token);
-      this._service.senhaNova(tokenJSON)
-    })
+        console.log(token)
+    
+        let senha: any ={
+          password: password,
+          token: token
+        }
+    
+        const senhaJSON = JSON.stringify(senha);
+        this._service.senhaNova(senhaJSON);
+
+        console.log(senhaJSON)
+    
+      })
+    }
+
+/*       const tokenJSON = JSON.stringify(token);
+      this._service.senhaNova(tokenJSON) */
+
   }
 
 }
