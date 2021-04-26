@@ -38,7 +38,7 @@ module.exports = {
     //Mesmo que o usario não exista, fingimos que ele exite para evitar sniffing.
     if (!userRecord) {
       return;
-    }//• 
+    }//•
 
     // Come up with a pseudorandom, probabilistically-unique token for use
     // in our password recovery email.
