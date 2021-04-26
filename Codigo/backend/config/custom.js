@@ -61,14 +61,14 @@ module.exports.custom = {
   * (https://app.sendgrid.com/settings/api_keys)                            *
   *                                                                         *
   **************************************************************************/
-  sendgridSecret: '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',
+  sendgridSecret: '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',
   //--------------------------------------------------------------------------
   // /\  Configure this to enable support for automated emails.
   // ||  (Important for password recovery, verification, contact form, etc.)
   //--------------------------------------------------------------------------
 
   // The sender that all outgoing emails will appear to come from.
-  fromEmailAddress: 'teoremapreparatoriodev2@gmail.com',
+  fromEmailAddress: 'hello@italolelis.com',
   fromName: 'Teorema Preparatorio',
 
   // Email address for receiving support messages & other correspondences.
