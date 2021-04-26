@@ -22,6 +22,8 @@ module.exports = {
       required: true
     }
 
+    //O token passado para a rota é o token gerado pela <send-password-recovery-email>
+
   },
 
 
@@ -33,7 +35,7 @@ module.exports = {
 
     invalidToken: {
       description: 'The provided password token is invalid, expired, or has already been used.',
-      responseType: 'expired'
+      responseType: 'expired',
     }
 
   },
@@ -47,6 +49,8 @@ module.exports = {
 
     // Look up the user with this reset token.
     var userRecord = await User.findOne({ passwordResetToken: token });
+    //Quando um token é gerado, ele é salvo no Banco na tabela de usuarios
+    //O token é salvo na coluna passwordResetToken juntamente com o tempo em que expira
 
     // If no such user exists, or their token is expired, bail.
     if (!userRecord || userRecord.passwordResetTokenExpiresAt <= Date.now()) {
@@ -68,6 +72,7 @@ module.exports = {
     // (This will be persisted when the response is sent.)
     this.req.session.userId = userRecord.id;
 
+    //após atualizar a senha é feito o login.
     // In case there was an existing session, broadcast a message that we can
     // display in other open tabs.
     if (sails.hooks.sockets) {
