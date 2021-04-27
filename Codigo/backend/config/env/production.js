@@ -148,9 +148,11 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: [
+        'http://localhost:4200',
+        'https://teorematest.netlify.app',
+        'https://teoremapreparatorio.netlify.app',
+      ]
     },
 
   },

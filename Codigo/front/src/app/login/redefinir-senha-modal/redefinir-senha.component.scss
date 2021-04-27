@@ -1,0 +1,61 @@
+.redefinir-senha{
+  margin-left: 60px;
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.chave{
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+p {
+  text-align: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 70px;
+  line-height: 1.2;
+}
+
+.cancel{
+  float: right;
+  cursor: pointer;
+}
+
+form{
+  text-align: center;
+  justify-content: center;
+}
+
+.mat-form-field{
+  width: 30vw;
+}
+
+#enviar-email{
+  text-align: center;
+  justify-content: center;
+}
+
+button{
+  color: aliceblue;
+  background-color: #9f55ad;
+  width: 9vw;
+  height: 5vh;
+  border-radius: 10px;
+  font-size: 25px;
+  width: 15vw;
+}
+
+button:hover{
+  background-color: #842397;
+  transition: 1s;
+  transform: translateY(-5px);
+}
+
+
+
+
+

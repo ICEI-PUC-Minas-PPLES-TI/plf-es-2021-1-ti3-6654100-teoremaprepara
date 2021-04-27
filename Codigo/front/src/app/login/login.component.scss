@@ -36,7 +36,9 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: #ffffff;
+
 }
+
 form{
     display: flex;
     flex-direction: column;
@@ -50,6 +52,7 @@ span{
     margin-top: 2vh;
     font-size: 1.5em;
     color: #000000a8;
+    cursor: pointer;
 
 }
 .button:hover{
@@ -57,6 +60,7 @@ span{
     transition: 1s;
     transform: translateY(-5px);
 }
+
 //mobile
 @media screen  and (max-width: 768px){
 
@@ -86,7 +90,21 @@ span{
         width: 45vw;
         height: 8vh;
     }
+
+    form{
+        align-items: center;
+        justify-content: center;
+    }
+
+    span{
+        font-size: 19.8px;
+    }
+
+    .mat-form-field{
+        width: 80vw;
+      }
 }
+
 
 
 

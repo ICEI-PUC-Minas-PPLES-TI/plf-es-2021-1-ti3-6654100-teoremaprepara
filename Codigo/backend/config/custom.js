@@ -23,6 +23,7 @@ module.exports.custom = {
   *                                                                         *
   **************************************************************************/
   baseUrl: 'http://localhost:1337',
+  frontUrl: 'http://localhost:4200',
 
   /**************************************************************************
   *                                                                         *
@@ -61,15 +62,15 @@ module.exports.custom = {
   * (https://app.sendgrid.com/settings/api_keys)                            *
   *                                                                         *
   **************************************************************************/
-  // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
+  sendgridSecret: process.env.SENDGRID_API_KEY,
   //--------------------------------------------------------------------------
   // /\  Configure this to enable support for automated emails.
   // ||  (Important for password recovery, verification, contact form, etc.)
   //--------------------------------------------------------------------------
 
   // The sender that all outgoing emails will appear to come from.
-  fromEmailAddress: 'noreply@example.com',
-  fromName: 'The NEW_APP_NAME Team',
+  fromEmailAddress: 'hello@italolelis.com',
+  fromName: 'Teorema Preparatorio',
 
   // Email address for receiving support messages & other correspondences.
   // > If you're using the default privacy policy, this will be referenced

@@ -1,3 +1,4 @@
+import { RedefinirSenhaNovaComponent } from './login/redefinir-senha-nova/redefinir-senha-nova.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard'
@@ -13,8 +14,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'load', component: LoadingComponent
+
+    path: 'redefinir-senha-nova', component: RedefinirSenhaNovaComponent
   },
+  
 
 
 

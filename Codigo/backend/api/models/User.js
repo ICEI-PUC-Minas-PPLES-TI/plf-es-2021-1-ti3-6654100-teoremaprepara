@@ -56,22 +56,35 @@ email status until they click the link in the confirmation email.`
       example: 'Mary Sue van der McHenst'
     },
 
-    isSuperAdmin: {
-      type: 'boolean',
-      description: 'Whether this user is a "super admin" with extra permissions, etc.',
-      extendedDescription:
-`Super admins might have extra permissions, see a different default home page when they log in,
-or even have a completely different feature set from normal users.  In this app, the \`isSuperAdmin\`
-flag is just here as a simple way to represent two different kinds of users.  Usually, it's a good idea
-to keep the data model as simple as possible, only adding attributes when you actually need them for
-features being built right now.
+    rg: {
+      type: 'string',
+      required: false,
+      description: 'RG do usuário',
+      maxLength: 20,
+      example: '000.000.00-00'
+    },
 
-For example, a "super admin" user for a small to medium-sized e-commerce website might be able to
-change prices, deactivate seasonal categories, add new offerings, and view live orders as they come in.
-On the other hand, for an e-commerce website like Walmart.com that has undergone years of development
-by a large team, those administrative features might be split across a few different roles.
+    dataNascimento: {
+      type: 'string',
+      required: false,
+      description: 'Data de Nascimento do usuário',
+      maxLength: 30,
+      example: '2000-12-31'
+    },
 
-So, while this \`isSuperAdmin\` demarcation might not be the right approach forever, it's a good place to start.`
+    telefone: {
+      type: 'string',
+      required: false,
+      description: 'Telefone do usuário',
+      maxLength: 30,
+      example: '(31) 99999-9999'
+    },
+
+    role: {
+      type: 'string',
+      isIn: ['coordenador', 'professor', 'aluno'],
+      defaultsTo: 'aluno',
+      description: 'Cargo do usuário.',
     },
 
     passwordResetToken: {
@@ -109,17 +122,34 @@ So, while this \`isSuperAdmin\` demarcation might not be the right approach fore
       example: 1502844074211
     },
 
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-    // n/a
+    curso: {
+      model: 'curso'
+    },
 
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    // n/a
+    disciplinas: {
+      collection: 'disciplina',
+      via: 'professores'
+    },
+
+
 
   },
 
+  customToJSON: function() {
+    return _.omit(this, [
+      'password',
+      'passwordResetToken',
+      'passwordResetTokenExpiresAt',
+      'emailProofToken',
+      'emailProofTokenExpiresAt',
+    ])
+  }
 
 };
