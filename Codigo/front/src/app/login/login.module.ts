@@ -33,6 +33,7 @@ const routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatButtonModule
   ]
 })
 export class LoginModule { }

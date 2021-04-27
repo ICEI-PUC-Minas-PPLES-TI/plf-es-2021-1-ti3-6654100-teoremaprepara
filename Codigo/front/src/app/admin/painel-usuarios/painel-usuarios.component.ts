@@ -55,7 +55,7 @@ export class PainelUsuariosComponent implements OnInit {
       data: {
         id: id,
         fullName: fullName,
-        dataNascimento: dataNascimento,
+        dataNascimento: "12-12-1999",
         telefone: telefone,
         rg: rg,
         emailAddress: emailAddress,

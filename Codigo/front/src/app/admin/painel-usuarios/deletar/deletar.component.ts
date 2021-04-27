@@ -24,13 +24,12 @@ export class DeletarComponent implements OnInit {
   }
 
   deleteUser(){
-    let a = this._service.delete(this.data.id);
-    console.log("Delete: "+a+"id: "+this.data.id);
+    this._service.delete(this.data.id);
     this.close();
     
   }
   close(){
-    this.dialogRef.close();
-    location.reload();
+    this.dialogRef.close()
+    //location.reload();
    }
 }

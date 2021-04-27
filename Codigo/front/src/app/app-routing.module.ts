@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PainelUsuariosComponent } from './admin/painel-usuarios/painel-usuarios.component';
 import { AuthGuard } from './guards/auth.guard'
+import { LoadingComponent } from './shared/loading/loading.component';
+
+
 const routes: Routes = [
   {
     path: '', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
@@ -10,6 +12,10 @@ const routes: Routes = [
     path: 'adm/usuarios', loadChildren: () => import('./admin/painel-usuarios/painel-usuarios.module').then(m => m.PainelUsuariosModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'load', component: LoadingComponent
+  },
+
 
 
 ];

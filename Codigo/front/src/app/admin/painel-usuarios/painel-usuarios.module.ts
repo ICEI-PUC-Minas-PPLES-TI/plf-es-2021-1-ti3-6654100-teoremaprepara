@@ -5,7 +5,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -13,6 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { TextMaskModule } from 'angular2-text-mask';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { ComponentsModule } from 'src/app/shared/components.module';
 import { PainelUsuariosComponent } from './painel-usuarios.component';
@@ -55,7 +57,13 @@ const routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatTooltipModule
-  ]
+    MatTooltipModule,
+    TextMaskModule,
+    MatChipsModule,
+    
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+  ],
 })
 export class PainelUsuariosModule { }

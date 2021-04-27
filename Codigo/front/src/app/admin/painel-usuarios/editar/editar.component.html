@@ -26,11 +26,11 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Telefone</mat-label>
-                <input matInput formControlName="telefone">
+                <input [textMask]="{mask: tel}" matInput formControlName="telefone">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>RG</mat-label>
-                <input matInput formControlName="rg">
+                <input [textMask]="{mask: rg}" matInput formControlName="rg">
             </mat-form-field>
         </div>
         <div>

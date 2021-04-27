@@ -3,7 +3,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+
 import { PainelUsuariosService } from '../../services/painel-usuarios.service';
+
 
 export interface User {
   id: String,
@@ -23,7 +25,7 @@ export interface User {
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.component.html',
-  styleUrls: ['./editar.component.scss']
+  styleUrls: ['./editar.component.scss'],
 })
 export class EditarComponent implements OnInit {
   cursoId: string = this.data.cursoId.toString();
@@ -32,6 +34,11 @@ export class EditarComponent implements OnInit {
   selectedValue: string;
   cursos: any;
   disciplinas: any;
+
+  public tel = ['(', /[1-9]/, /\d/, ')',/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+  public rg = [/[1-9]/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/]
+  
+  
   constructor(
     private _service: PainelUsuariosService,
     private _formBuilder: FormBuilder,
@@ -106,10 +113,13 @@ export class EditarComponent implements OnInit {
     const userJSON = JSON.stringify(user);
     this._service.editar(id, userJSON);
     this.close();
-    location.reload();
+    //location.reload();
   }
 
    close(){
     this.dialogRef.close();
    }
+
+
+   
 }
