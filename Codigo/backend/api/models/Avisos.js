@@ -25,6 +25,9 @@
        model: 'disciplina'
      },
 
+     professor:{
+       model: 'user'
+     }
    }, 
  };
  
