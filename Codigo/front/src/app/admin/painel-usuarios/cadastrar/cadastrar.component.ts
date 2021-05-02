@@ -99,12 +99,13 @@ export class CadastrarComponent implements OnInit {
     //Chamar a função cadastrar
     this._service.cadastrar(userJSON);
     this.close();
+    location.reload();
   }
 
 
 
   close(){
     this.dialogRef.close();
-    location.reload();
+    
    }
 }

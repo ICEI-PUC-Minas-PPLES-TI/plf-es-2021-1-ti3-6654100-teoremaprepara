@@ -23,13 +23,13 @@ export class DeletarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteUser(){
-    this._service.delete(this.data.id);
-    this.close();
+  async deleteUser(){
+    let  result = await this._service.delete(this.data.id);
+    this.close();      
     
   }
-  close(){
-    this.dialogRef.close()
-    //location.reload();
+   close(){
+     this.dialogRef.close();
+     //location.reload()
    }
 }

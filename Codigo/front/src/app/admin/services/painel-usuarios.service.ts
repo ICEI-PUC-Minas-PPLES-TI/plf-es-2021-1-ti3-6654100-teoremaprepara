@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,10 @@ import { Observable, throwError } from 'rxjs';
 export class PainelUsuariosService {
 
   constructor(
-    private http:HttpClient,
+    private http: HttpClient,
     private router: Router,
     private ngZone: NgZone,
+    private location: Location
   ) { }
   url = 'https://teorema-prepara.herokuapp.com/api/v1/';
 
@@ -26,20 +28,17 @@ getDisciplina(): Observable<any> {
 getUser(): Observable<any> {
   return this.http.get(`${this.url}user`).pipe();
 }
-delete(id:String){
-  return this.http.delete(`${this.url}user/${id}`).subscribe(
-    (result) => {
-      console.log("sucesso");     
+  delete(id:String){
+  this.http.delete(`${this.url}user/${id}`).subscribe(
+    success => {
+      console.log("SUCESSO");
+      location.reload();
     },
-    result => {
-      console.log(result)
-      switch(result.status) {
-        case 401:
-          console.log("401")
-          break;
-      }
+    error => {
+      console.log("ERROR")
     }
   );
+  return false;
 }
 cadastrar(user: any){
 
@@ -64,24 +63,16 @@ cadastrar(user: any){
 editar(id: any,user: any){
 
   this.http.patch(`${this.url}user/${id}`,user).subscribe(
-    (result) => {
-      console.log("sucesso");     
+    success => {
+      console.log("SUCESSO");
+      location.reload();
     },
-    result => {
-      console.log(result)
-      switch(result.status) {
-        case 401:
-          console.log("401")
-        break;
-        case 400:
-          console.log("400")
-        break;
-        case 404:
-          console.log("404")
-        break;
-      }
+    error => {
+      console.log("ERROR")
     }
   );
 }
-
+redirecionar(){
+  this.ngZone.run(() => this.router.navigate(['/adm/usuarios'])).then();
+}
 }
