@@ -68,8 +68,16 @@ email status until they click the link in the confirmation email.`
       type: 'string',
       required: false,
       description: 'Data de Nascimento do usuário',
-      maxLength: 20,
+      maxLength: 30,
       example: '2000-12-31'
+    },
+
+    telefone: {
+      type: 'string',
+      required: false,
+      description: 'Telefone do usuário',
+      maxLength: 30,
+      example: '(31) 99999-9999'
     },
 
     role: {

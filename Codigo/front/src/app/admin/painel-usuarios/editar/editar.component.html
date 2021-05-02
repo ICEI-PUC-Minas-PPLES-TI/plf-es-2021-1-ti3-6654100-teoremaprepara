@@ -1,0 +1,83 @@
+<div id="body">
+    <div class="header">
+        <div>
+            <mat-icon class="icon">edit</mat-icon>
+            <h3>Editar usuário</h3>
+        </div>
+        <div class="close" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="editarUser()">
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Data de nascimento</mat-label>
+                <input matInput formControlName="data" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Telefone</mat-label>
+                <input [textMask]="{mask: tel}" matInput formControlName="telefone">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>RG</mat-label>
+                <input [textMask]="{mask: rg}" matInput formControlName="rg">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" id="tipoUser">
+                <mat-label>Tipo de usuário</mat-label>
+                <mat-select [(value)]="this.data.role" formControlName="tipoUser">
+                    <mat-option value="aluno">
+                        Aluno
+                    </mat-option>
+                    <mat-option value="professor">
+                        Professor
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" id="curso">
+                <mat-label>Curso</mat-label>
+                <mat-select [(value)]="this.data.cursoId" formControlName="curso" [disabled]="verificarCampos()">
+                    <mat-option *ngFor = "let curso of cursos" value="{{ curso.id }}">
+                        {{ curso.nome }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" id="disciplina">
+                <mat-label>Disciplinas</mat-label>
+                <mat-select   formControlName="disciplina" [disabled]="!verificarCampos()">
+                    <mat-option *ngFor = "let disciplina of disciplinas" value="{{ disciplina.id }}">
+                        {{ disciplina.nome }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!--mat-form-field appearance="outline">
+                <mat-label>Turma</mat-label>
+                <input matInput formControlName="turma">
+            </mat-form-field-->
+            
+
+        </div>
+        <div class="div-btn">
+            <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
+            <button type="submit" mat-flat-button class="confirmar-btn">Confirmar</button>
+        </div>
+    </form>
+    
+</div>

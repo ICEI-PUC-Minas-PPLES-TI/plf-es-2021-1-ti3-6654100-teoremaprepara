@@ -1,10 +1,8 @@
 h1, h2, h3, h4, h5, h6, p, span{
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
 }
 .button{
-    width: 15vw;
-    height: 6.5vh;
-    border-radius: 10px;
     color: aliceblue;
     text-align: center;
     justify-content: center;
@@ -12,4 +10,46 @@ h1, h2, h3, h4, h5, h6, p, span{
     display: flex;
     font-size: 25px;
     cursor: pointer;
+}
+.close{
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: #ffff;
+}
+.close > mat-icon{
+    margin: 7%;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3vh;
+    border-bottom: 1px solid #EAEAEA;
+}
+.header> div{
+    display: flex;
+}
+.header> div> h3{
+    font-size: 1.5rem;
+}
+.icon{
+    margin-right: 1vw;
+    width: 2vw;
+    height: 2vw;
+    font-size: 2vw;
+}
+.cancelar-btn{
+    color: #ffffff;
+    background-color: #C70000;
+    width: 8vw;
+}
+.confirmar-btn{
+    color: #ffffff;
+    background-color: #00AE50;
+    width: 8vw;
+}
+.div-btn{
+    display: flex;
+    justify-content: space-around;
 }

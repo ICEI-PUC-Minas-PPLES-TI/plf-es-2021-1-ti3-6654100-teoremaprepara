@@ -78,6 +78,13 @@ the account verification message.)`,
       description: 'Aniversário do usuário.',
     },
 
+    telefone:  {
+      required: false,
+      type: 'string',
+      example: '(31) 99999-9999',
+      description: 'Telefone do usuário.',
+    },
+
   },
 
 
@@ -102,7 +109,7 @@ the account verification message.)`,
   },
 
 
-  fn: async function ({emailAddress, password, fullName, role, curso, disciplinas, rg, dataNascimento}) {
+  fn: async function ({emailAddress, password, fullName, role, curso, disciplinas, rg, dataNascimento, telefone}) {
 
     const newEmailAddress = emailAddress.toLowerCase();
 
@@ -113,6 +120,7 @@ the account verification message.)`,
       dataNascimento,
       rg,
       role,
+      telefone,
       emailAddress: newEmailAddress,
       password: await sails.helpers.passwords.hashPassword(password),
       tosAcceptedByIp: this.req.ip

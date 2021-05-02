@@ -1,7 +1,7 @@
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,9 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { HttpClientModule, } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { PainelSimuladosComponent } from './admin/painel-simulados/painel-simulados.component';
 import { ComponentsModule } from './shared/components.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,12 @@ import { ComponentsModule } from './shared/components.module';
     LoginModule,
     MatDialogModule,
     HttpClientModule,
+    HttpClientModule,
+    MatTooltipModule,
+    LoginModule,
     ComponentsModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
