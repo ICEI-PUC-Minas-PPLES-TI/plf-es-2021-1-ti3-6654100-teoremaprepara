@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -18,9 +19,16 @@ export class MenuComponent implements OnInit {
   ];
   @Input() user = "";
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private ngZone: NgZone,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  redirecionar(){
+    this.ngZone.run(() => this.router.navigate([''])).then();
   }
 
 }
