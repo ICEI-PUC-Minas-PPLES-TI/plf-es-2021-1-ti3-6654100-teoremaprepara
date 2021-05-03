@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PainelSimuladosComponent } from './admin/painel-simulados/painel-simulados.component';
 import { ComponentsModule } from './shared/components.module';
 import { AuthGuard } from './guards/auth.guard';
+import { PainelCursosComponent } from './admin/painel-cursos/painel-cursos.component';
 
 @NgModule({
   declarations: [

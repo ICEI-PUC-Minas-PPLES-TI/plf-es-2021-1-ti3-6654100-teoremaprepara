@@ -17,62 +17,67 @@ export class PainelUsuariosService {
   ) { }
   url = 'https://teorema-prepara.herokuapp.com/api/v1/';
 
- 
-getCurso(): Observable<any> {
-  return this.http.get(`${this.url}curso`).pipe();
-}
-getDisciplina(): Observable<any> {
-  return this.http.get(`${this.url}disciplina`).pipe();
-}
 
-getUser(): Observable<any> {
-  return this.http.get(`${this.url}user`).pipe();
-}
-  delete(id:String){
-  this.http.delete(`${this.url}user/${id}`).subscribe(
-    success => {
-      console.log("SUCESSO");
-      location.reload();
-    },
-    error => {
-      console.log("ERROR")
-    }
-  );
-  return false;
-}
-cadastrar(user: any){
+  getCurso(): Observable<any> {
+    return this.http.get(`${this.url}curso`).pipe();
+  }
+  getDisciplina(): Observable<any> {
+    return this.http.get(`${this.url}disciplina`).pipe();
+  }
 
-  this.http.post(`${this.url}entrance/signup`,user).subscribe(
-    (result) => {
-      console.log("sucesso");     
-    },
-    result => {
-      console.log(result)
-      switch(result.status) {
-        case 401:
-          console.log("401")
-        break;
-        case 400:
-          console.log("400")
-        break;
+  getUser(): Observable<any> {
+    return this.http.get(`${this.url}user`).pipe();
+  }
+
+  getUserId(id: String): Observable<any>{
+    return this.http.get(`${this.url}user/${id}`).pipe();
+  }
+  
+  delete(id: String) {
+    this.http.delete(`${this.url}user/${id}`).subscribe(
+      success => {
+        console.log("SUCESSO");
+        location.reload();
+      },
+      error => {
+        console.log("ERROR")
       }
-    }
-  );
-}
+    );
+    return false;
+  }
+  cadastrar(user: any) {
 
-editar(id: any,user: any){
+    this.http.post(`${this.url}entrance/signup`, user).subscribe(
+      (result) => {
+        console.log("sucesso");
+      },
+      result => {
+        console.log(result)
+        switch (result.status) {
+          case 401:
+            console.log("401")
+            break;
+          case 400:
+            console.log("400")
+            break;
+        }
+      }
+    );
+  }
 
-  this.http.patch(`${this.url}user/${id}`,user).subscribe(
-    success => {
-      console.log("SUCESSO");
-      location.reload();
-    },
-    error => {
-      console.log("ERROR")
-    }
-  );
-}
-redirecionar(){
-  this.ngZone.run(() => this.router.navigate(['/adm/usuarios'])).then();
-}
+  editar(id: any, user: any) {
+
+    this.http.patch(`${this.url}user/${id}`, user).subscribe(
+      success => {
+        console.log("SUCESSO");
+        location.reload();
+      },
+      error => {
+        console.log("ERROR")
+      }
+    );
+  }
+  redirecionar() {
+    this.ngZone.run(() => this.router.navigate(['/adm/usuarios'])).then();
+  }
 }

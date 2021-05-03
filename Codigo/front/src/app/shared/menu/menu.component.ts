@@ -15,6 +15,10 @@ export class MenuComponent implements OnInit {
     {
       opcao: "Simulados",
       icons: "article"
+    },
+    {
+      opcao: "Cursos",
+      icons: "article"
     }
   ];
   @Input() user = "";
