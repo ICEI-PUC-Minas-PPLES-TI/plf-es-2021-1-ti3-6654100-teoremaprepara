@@ -2,19 +2,23 @@
 <div id="corpo">
   <div id="formulario">
     <img src="../../assets/logoTeorema.png" alt="">
-    <form>
+
+    <form [formGroup]="form" onSubmit="novaSenha()">
 
       <mat-form-field appearance="outline">
         <mat-label>Digite a nova senha</mat-label>
-        <input matInput formControlName="email" required>
+        <input matInput formControlName="senha" [type]="hide ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Digite novamente a nova senha</mat-label>
-        <input matInput formControlName="senha" required>
+        <input matInput formControlName="confirmarSenha" [type]="hide ? 'password' : 'text'" required>
       </mat-form-field>
 
-      <div class="button">Redefinir Senha</div>
+      <div type="submit" class="button" (click)="novaSenha()">Redefinir Senha</div>
 
     </form>
 
