@@ -17,28 +17,25 @@ import { TextMaskModule } from 'angular2-text-mask';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { PainelCursosComponent } from './painel-cursos.component';
 import { ComponentsModule } from 'src/app/shared/components.module';
-import { PainelUsuariosComponent } from './painel-usuarios.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EditarComponent } from './editar/editar.component';
 import { DeletarComponent } from './deletar/deletar.component';
-import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 const routes = [
   {
       path: '',
-      component: PainelUsuariosComponent
+      component: PainelCursosComponent
   }
 ];
 
-
 @NgModule({
   declarations: [
-    PainelUsuariosComponent,
+    PainelCursosComponent,
+    CadastrarComponent,
     EditarComponent,
-    DeletarComponent,
-    CadastrarComponent
+    DeletarComponent
   ],
   imports: [
     CommonModule,
@@ -61,10 +58,6 @@ const routes = [
     MatTooltipModule,
     TextMaskModule,
     MatChipsModule,
-    
-  ],
-  providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
-  ],
+  ]
 })
-export class PainelUsuariosModule { }
+export class PainelCursosModule { }

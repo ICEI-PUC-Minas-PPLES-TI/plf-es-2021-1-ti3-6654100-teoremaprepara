@@ -1,0 +1,64 @@
+<div id="body">
+    <div class="header">
+        <div>
+            <mat-icon class="icon">article</mat-icon>
+            <h3>Cadastrar Curso</h3>
+        </div>
+        <div class="close" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="cadastrarCurso()">
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Descrição</mat-label>
+                <input matInput formControlName="descricao">
+            </mat-form-field>
+        </div>
+        <div>
+            <!-- <mat-form-field class="example-chip-list">
+                <mat-label>Disciplinas</mat-label>
+                <mat-chip-list #chipList formArrayName="fruits">
+                  <mat-chip *ngFor="let disciplinas of fruitControls.value"  [selectable]="selectable"
+                           [removable]="removable" (removed)="remove(disciplinas)">
+                    {{disciplinas.name}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input  placeholder="Nova disciplina..."
+                         [matChipInputFor]="chipList"
+                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                         [matChipInputAddOnBlur]="addOnBlur"
+                         (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+              </mat-form-field> -->
+              <mat-form-field class="example-chip-list">
+                <mat-chip-list #chipList  formArrayName="fruits">
+                    <mat-chip *ngFor="let disciplina of fruitControls.value" [selectable]="selectable" [removable]="removable"
+                        (removed)="remove(disciplina)">
+                        {{disciplina}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="Inserir disciplina..."
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+            </mat-form-field>
+        </div>
+            
+
+        <div class="div-btn">
+            <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
+            <button type="submit" mat-flat-button class="confirmar-btn" >Confirmar</button>
+        </div>
+    </form>
+    
+</div>

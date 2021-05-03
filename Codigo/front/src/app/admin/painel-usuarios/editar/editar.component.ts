@@ -28,6 +28,7 @@ export interface User {
   styleUrls: ['./editar.component.scss'],
 })
 export class EditarComponent implements OnInit {
+  
   cursoId: string = this.data.cursoId.toString();
   disciplinaId: string = this.data.disciplinaId.toString();
   form: FormGroup;
@@ -50,7 +51,7 @@ export class EditarComponent implements OnInit {
     this.getCurso();
     this.getDisciplina();
     this.initForm();
-    console.log(this.data.id);
+    this.getUser(this.data.id);
   }
   getCurso(){
     this._service.getCurso().subscribe(data => {
@@ -63,8 +64,18 @@ export class EditarComponent implements OnInit {
       this.disciplinas = data;   
    })   
   }
+
+  getUser(id: String){
+    this._service.getUserId(id).subscribe(
+      user => {
+        //console.log("aqui"+user.id);
+      }
+    )
+  }
   
   initForm(){
+    const user = this.getUser(this.data.id);
+    console.log(user);
     this.form = this._formBuilder.group({
       nome : [this.data.fullName],
       data: [this.data.dataNascimento.trim()],
@@ -99,7 +110,7 @@ export class EditarComponent implements OnInit {
       emailAddress: emailAddress,
       fullName: fullName,
       rg: rg,
-      dataNascimento: "2020-04-19",
+      dataNascimento: dataNascimento,
       role: role      
     };
 

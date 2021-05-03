@@ -1,0 +1,16 @@
+<div id="body">
+    <div class="header">
+        <div>
+            <mat-icon class="icon">delete</mat-icon>
+            <h3>Deletar curso</h3>
+        </div>
+        <div class="close" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    <h4>Deseja deletar {{ data.name}}</h4>
+    <div class="div-btn">
+        <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
+        <button mat-flat-button class="confirmar-btn" (click)="deleteCurso()">Confirmar</button>
+    </div>
+</div>

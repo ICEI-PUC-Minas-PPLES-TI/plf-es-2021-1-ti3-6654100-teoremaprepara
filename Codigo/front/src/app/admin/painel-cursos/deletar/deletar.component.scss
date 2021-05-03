@@ -1,0 +1,17 @@
+@import "../../../app.component.scss";
+
+#body{
+    height: 30vh;
+    width: 35vw;
+}
+.icon, h3{
+    color: #C70000;
+}
+h4{
+    font-size: 1.7em;
+    margin: 7vh auto;
+    text-align: center;
+}
+.close{
+    background-color: #C70000;
+}

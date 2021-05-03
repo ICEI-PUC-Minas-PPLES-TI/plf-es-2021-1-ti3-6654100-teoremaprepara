@@ -14,6 +14,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'adm/cursos', loadChildren: () => import('./admin/painel-cursos/painel-cursos.module').then(m => m.PainelCursosModule),
+    canActivate: [AuthGuard]
+  },
+  
+  {
 
     path: 'redefinir-senha-nova', component: RedefinirSenhaNovaComponent
   },
