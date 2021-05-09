@@ -1,110 +1,114 @@
 @import "../app.component.scss";
-#fundo{
-    height: 100%;
-    width: 70%;
-    text-align: center;
-    display: block;
-    justify-content: center;
-    
+@keyframes appearFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-#fundo > img{
-    height: 80vh;
-    margin-top: 5%;
+@keyframes appearFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-#corpo{
-    display: flex;
-    //justify-content: center;
-    
+#fundo {
+  margin-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+  background: url("../../assets/Tiny students learning online lesson via laptop.jpg")
+    center;
+  background-size: cover;
+  animation: appearFromLeft 1.9s;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
-#formulario{
-    width: 25%;
-    margin-top: 2%;
-    align-items: center;
-    text-align: center;
+#corpo {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+#formulario {
+  margin-top: 1.2em;
+  width: 75.2%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  @media (min-width: 1280px) {
+    margin-right: 1.42em;
+  }
+}
+#animation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: appearFromTop 1.9s;
+}
+#logo {
+  margin-top: 1.2em;
+  margin-bottom: 2.6em;
+  width: 17.984em;
+  display: flex;
+}
+.button {
+  margin-top: 5vh !important;
+  background-color: #9f55ad;
+  // width: 15vw;
+  // height: 6vh;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #ffffff;
 }
 
-#formulario > img{
-    width: 15vw;
-    //margin-bottom: 15%;
-}
-.button{
-    margin-top: 5vh !important;
-    background-color: #9f55ad;
-    width: 15vw;
-    height: 6vh;
-    margin: 0 auto;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #ffffff;
+form {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  text-align: center;
 
-}
-
-form{
-    display: flex;
-    flex-direction: column;
+  h1 {
+    color: #656565;
+    margin-bottom: 2em;
+  }
+  @media (max-width: 375px) {
+    width: 280px;
+  }
 }
 
 mat-form-field.mat-form-field {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-span{
-    margin-top: 2vh;
-    font-size: 1em;
-    color: #000000a8;
-    cursor: pointer;
-
+span {
+  margin-top: 2vh;
+  font-size: 1em;
+  color: #656565;
+  cursor: pointer;
 }
-.button:hover{
-    background-color: #842397;
-    transition: 1s;
-    transform: translateY(-5px);
+.button:hover {
+  background-color: #842397;
+  transition: 1s;
+  transform: translateY(-5px);
 }
-
-//mobile
-@media screen  and (max-width: 768px){
-
-    #corpo{
-        display: block;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #fundo > img{
-        display: none;
-    }
-
-    #formulario > img {
-        width: auto;
-    }
-
-    #formulario{
-        width: auto;
-        max-width: 80vw;
-        margin: 0 5vw;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .button{
-        width: 45vw;
-        height: 8vh;
-    }
-
-    form{
-        align-items: center;
-        justify-content: center;
-    }
-
-    span{
-        font-size: 19.8px;
-    }
-
-    .mat-form-field{
-        width: 80vw;
-      }
-}
-
-
-
-

@@ -1,33 +1,48 @@
 <div id="corpo">
-    <div id="fundo">
-        <img src="../../assets/Tiny students learning online lesson via laptop.jpg" alt="">
+  <div id="fundo"></div>
+  <div id="formulario">
+    <div id="animation-container">
+      <img id="logo" src="../../assets/logo.png" alt="" />
+
+      <form [formGroup]="form">
+        <h1>Acesse sua conta</h1>
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" required />
+          <mat-error *ngIf="form.get('email')?.invalid"
+            >Email invalido</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input
+            matInput
+            formControlName="senha"
+            [type]="hide ? 'password' : 'text'"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.get('senha')?.invalid"
+            >Senha invalida</mat-error
+          >
+          <mat-hint></mat-hint>
+        </mat-form-field>
+
+        <button mat-flat-button class="button" (click)="login()">
+          Conecte-se
+        </button>
+
+        <span (click)="addSenha()">Esqueci minha senha</span>
+      </form>
     </div>
-    <div id="formulario">
-        <img src="../../assets/logoTeorema.png" alt="">
-        <!--h1>Acesse sua conta</h1-->
-        <form [formGroup]="form">
-            
-            <mat-form-field appearance="outline">
-              <mat-label>E-mail</mat-label>
-              <input matInput  formControlName="email" required>
-              <mat-error *ngIf="form.get('email')?.invalid">Email invalido</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-              <mat-label>Senha</mat-label>
-              <input matInput formControlName="senha" [type]="hide ? 'password' : 'text'" required>
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-              <mat-error *ngIf="form.get('senha')?.invalid">Senha invalida</mat-error>
-              <mat-hint></mat-hint>
-            </mat-form-field>
-            
-            <button mat-flat-button class="button" (click)="login()">Conecte-se</button>
-
-            <span (click)="addSenha()">Esqueci minha senha</span>
-
-          </form>
-    
-    </div>    
+  </div>
 </div>
