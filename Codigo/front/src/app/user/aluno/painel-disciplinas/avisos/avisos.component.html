@@ -1,0 +1,34 @@
+<div id="body">
+    <div class="header">
+        <div>
+            <mat-icon class="icon">campaign</mat-icon>
+            <h3>Avisos </h3>
+        </div>
+        <div class="close" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    <div id="table">
+        
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="id">
+                    <th class="disciplina" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                    <td mat-cell *matCellDef="let row" (click)="openAviso(row.id)"> {{row.titulo}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell no-data" colspan="4"><img src="../../../../assets/no-data.png" alt=""></td>
+                </tr>
+            </table>
+
+            <!-- <mat-paginator [pageSizeOptions]="[7,10, 25, 100]"></mat-paginator> -->
+        </div>
+    </div>
+    
+
+</div>
