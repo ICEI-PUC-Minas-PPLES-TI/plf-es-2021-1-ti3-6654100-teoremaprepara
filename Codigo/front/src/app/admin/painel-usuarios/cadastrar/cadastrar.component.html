@@ -8,75 +8,116 @@
             <mat-icon>close</mat-icon>
         </div>
     </div>
-    <form [formGroup]="form" (ngSubmit)="cadastrarUser()">
+    <mat-vertical-stepper #stepper>
+        <form [formGroup]="form">
+            <mat-step>
+                <ng-template matStepLabel>Dados pessoais</ng-template>
+                <div class="flex">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nome</mat-label>
+                        <input matInput formControlName="nome">
+                    </mat-form-field>
 
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label>Nome</mat-label>
-                <input matInput formControlName="nome">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Data de nascimento</mat-label>
-                <input matInput formControlName="data" [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label>Telefone</mat-label>
-                <input [textMask]="{mask: tel}" matInput formControlName="telefone">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>RG</mat-label>
-                <input [textMask]="{mask: rg}" matInput formControlName="rg">
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label>E-mail</mat-label>
-                <input matInput formControlName="email">
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="outline" id="tipoUser">
-                <mat-label>Tipo de usuário</mat-label>
-                <mat-select [(ngModel)]="selectedValue" formControlName="tipoUser">
-                    <mat-option value="aluno">
-                        Aluno
-                    </mat-option>
-                    <mat-option value="professor">
-                        Professor
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline" id="curso">
-                <mat-label>Curso</mat-label>
-                <mat-select [(ngModel)]="selectedValues" formControlName="curso" [disabled]="verificarCampos()">
-                    <mat-option *ngFor = "let curso of cursos" value="{{ curso.id }}">
-                        {{ curso.nome }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline" id="disciplina">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Data de nascimento</mat-label>
+                        <input matInput formControlName="data" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="flex">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Telefone</mat-label>
+                        <input [textMask]="{mask: tel}" matInput formControlName="telefone">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>RG</mat-label>
+                        <input [textMask]="{mask: rg}" matInput formControlName="rg">
+                    </mat-form-field>
+                </div>
+                <div style="width: 96%">
+                    <mat-form-field appearance="outline">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+                </div>
+            </mat-step>
+            <mat-step>
+            <ng-template matStepLabel>Dados de usuario</ng-template>
+                <div class="flex">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Tipo de usuário</mat-label>
+                            <mat-select  formControlName="tipoUser">
+                                <mat-option value="aluno">
+                                    Aluno
+                                </mat-option>
+                                <mat-option value="professor">
+                                    Professor
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" id="curso" >
+                            <mat-label>Curso</mat-label>
+                            <mat-select formControlName="curso" [disabled]="verificarCampos()">
+                                <mat-option *ngFor="let curso of cursos" value="{{ curso.id }}">
+                                    {{ curso.nome }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <!-- <mat-form-field appearance="outline" id="disciplina">
                 <mat-label>Disciplinas</mat-label>
                 <mat-select [(ngModel)]="selectedValuex" formControlName="disciplina" [disabled]="!verificarCampos()">
                     <mat-option *ngFor = "let disciplina of disciplinas" value="{{ disciplina.id }}">
                         {{ disciplina.nome }}
                     </mat-option>
                 </mat-select>
-            </mat-form-field>
-            <!--mat-form-field appearance="outline">
-                <mat-label>Turma</mat-label>
-                <input matInput formControlName="turma">
-            </mat-form-field-->
+            </mat-form-field> -->
+                    <p *ngIf = "verificarCampos()" style="margin: 1vw" >Cadastro de materias para o professor, selecione o curso para qual ele vai lecionar e as materias correspondentes:</p>
+                    <div  class="flex" *ngIf = "verificarCampos()">
+                        <!-- <mat-form-field appearance="outline" style="width: 47%">
+                            <mat-label>Selecione o curso para ver as materias relacionadas</mat-label>
+                            <mat-select [(ngModel)]="selectedValues" formControlName="curso" [disabled]="verificarCampos()">
+                                <mat-option *ngFor="let curso of cursos" value="{{ curso.id }}">
+                                    {{ curso.nome }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+                        <mat-form-field appearance="outline" id="curso" style="width: 47%">
+                            <mat-label>Curso</mat-label>
+                            <mat-select  multiple  formControlName="cursoD" (blur)="addDisciplina()">
+                                <mat-option *ngFor="let curso of cursos" value="{{ curso.id }}">
+                                    {{ curso.nome }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" id="curso" style="width: 47%" >
+                            <mat-label>Disciplinas</mat-label>
+                            <mat-select  multiple formControlName="disciplinas">
+                                <mat-option *ngFor="let disciplina of disciplinas" value="{{ disciplina.id }}">
+                                    {{ disciplina.nome }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+            </mat-step>
+            <mat-step> 
+                <ng-template matStepLabel>Confirmar dados</ng-template>
+                <div *ngIf = "verificarPreenchimento()">
+                   <div class="dados"><p> Nome: {{this.form.get("nome")?.value}}</p><p>Data de nascimento: {{this.form.get("data")?.value | date:'dd/MM/yyyy'}}</p></div>
+                   <div class="dados"><p> Telefone: {{this.form.get("telefone")?.value}}</p><p>RG: {{this.form.get("rg")?.value}}</p></div>
+                   <div class="dados"><p> E-mail: {{this.form.get("email")?.value}}</p><p> Usuário: {{this.form.get("tipoUser")?.value}}</p></div>
+                </div>
+                <div id="alerta" *ngIf = "!verificarPreenchimento()">
+                    <h5>Preencha todos os campos</h5>
+                </div>
+                <div class="div-btn">
+                    <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
+                    <button type="submit" mat-flat-button class="confirmar-btn" (click)="cadastrarUser()">Confirmar</button>
+                </div>
+            </mat-step>
+            
+        </form>
+    </mat-vertical-stepper>
 
-        </div>
-        <div class="div-btn">
-            <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
-            <button type="submit" mat-flat-button class="confirmar-btn" >Confirmar</button>
-        </div>
-    </form>
-    
 </div>

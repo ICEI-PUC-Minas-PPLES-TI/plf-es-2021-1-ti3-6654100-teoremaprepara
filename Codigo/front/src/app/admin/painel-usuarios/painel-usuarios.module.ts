@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -16,6 +16,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { TextMaskModule } from 'angular2-text-mask';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { ComponentsModule } from 'src/app/shared/components.module';
 import { PainelUsuariosComponent } from './painel-usuarios.component';
@@ -61,10 +63,12 @@ const routes = [
     MatTooltipModule,
     TextMaskModule,
     MatChipsModule,
-    
+    MatStepperModule,
+    MatCheckboxModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    DatePipe
   ],
 })
 export class PainelUsuariosModule { }
