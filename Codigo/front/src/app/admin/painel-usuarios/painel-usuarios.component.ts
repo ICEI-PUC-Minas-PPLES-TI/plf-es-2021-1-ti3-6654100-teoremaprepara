@@ -38,6 +38,30 @@ export class PainelUsuariosComponent implements OnInit {
     // this.dataSource = new MatTableDataSource(users);
   }
 
+  menu = [
+    {
+      opcao: "Usuários",
+      icons: "group",
+      url: "adm/usuarios",
+      color: "color: #7B7EFF",
+    },
+    {
+      opcao: "Cursos",
+      icons: "article",
+      url: "adm/cursos",
+      color: "color: #FFFFFF",
+    },
+    {
+      opcao: "Simulados",
+      icons: "article",
+      url: "adm/simulados",
+      color: "color: #FFFFFF",
+    },
+    
+  ];
+  nomeUser = "Elmo Junior";
+  iconHeader = "group";
+  nomeHeader = "Usuários";
   ngOnInit(): void {
     this.getUser();
     

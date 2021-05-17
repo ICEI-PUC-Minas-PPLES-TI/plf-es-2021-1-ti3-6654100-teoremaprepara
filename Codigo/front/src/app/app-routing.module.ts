@@ -1,8 +1,7 @@
 import { RedefinirSenhaNovaComponent } from './login/redefinir-senha-nova/redefinir-senha-nova.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard'
-import { LoadingComponent } from './shared/loading/loading.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -15,6 +14,10 @@ const routes: Routes = [
   },
   {
     path: 'adm/cursos', loadChildren: () => import('./admin/painel-cursos/painel-cursos.module').then(m => m.PainelCursosModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'adm/simulados', loadChildren: () => import('./admin/painel-simulados/painel-simulados.module').then(m => m.PainelSimuladosModule),
     canActivate: [AuthGuard]
   },
   

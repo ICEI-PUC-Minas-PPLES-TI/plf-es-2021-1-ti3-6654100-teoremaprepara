@@ -9,23 +9,13 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   @Input() menu = [
     {
-      opcao: "Usuário",
-      icons: "group"
-    },
-    {
-      opcao: "Simulados",
-      icons: "article"
-    },
-    {
-      opcao: "Cursos",
-      icons: "article"
-    },
-    {
-      opcao: "Disciplinas",
-      icons: "article"
+      opcao: "",
+      icons: "",
+      url: "",
+      color: "#FFFFFF",
     }
   ];
-  @Input() user = "";
+  @Input() nomeUser = "";
 
   constructor(
     private router: Router,
@@ -37,6 +27,9 @@ export class MenuComponent implements OnInit {
 
   redirecionar(){
     this.ngZone.run(() => this.router.navigate([''])).then();
+  }
+  irSubMenu(url:string){    
+    this.router.navigate([`/${url}`]);
   }
 
 }
