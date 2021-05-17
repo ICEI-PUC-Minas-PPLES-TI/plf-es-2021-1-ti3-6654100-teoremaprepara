@@ -17,6 +17,10 @@ export class PainelCursosService {
     return this.http.get(`${this.url}curso`).pipe();
   }
 
+  getCursoId(id: String): Observable<any>{
+    return this.http.get(`${this.url}curso/${id}`).pipe();
+  }
+
   cadastrar(curso: any) {
 
     this.http.post(`${this.url}curso/criar-curso`, curso).subscribe(

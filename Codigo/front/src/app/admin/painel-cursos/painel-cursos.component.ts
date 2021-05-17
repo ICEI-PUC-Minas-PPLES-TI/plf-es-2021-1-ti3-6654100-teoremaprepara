@@ -25,6 +25,7 @@ export class PainelCursosComponent implements OnInit {
   dataSource: MatTableDataSource<CursoData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  curso: Curso;
   
   constructor(
     public dialog: MatDialog,
@@ -58,14 +59,14 @@ export class PainelCursosComponent implements OnInit {
     this.getCurso();
   }
 
-/*   openEdit(id: String) {
+    openEdit(id: String) {
     this._service.getCursoId(id).subscribe(
       response => {
         this.curso = {
           id: response.id,
-          nome: response.nome,
+          name: response.nome,
           descricao: response.descricao,
-          disciplina: response.disciplina
+          disciplina: response.disciplinas
         }
         const dialogRef = this.dialog.open(EditarComponent, {data: this.curso});
           //curso: [null],
@@ -74,7 +75,7 @@ export class PainelCursosComponent implements OnInit {
         }
         );
 
-  } */
+  }  
 
   openAdd(){
     const dialogRef = this.dialog.open(CadastrarComponent);

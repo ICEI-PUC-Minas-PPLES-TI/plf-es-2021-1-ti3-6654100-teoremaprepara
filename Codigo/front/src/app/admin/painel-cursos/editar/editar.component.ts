@@ -33,19 +33,17 @@ export class EditarComponent implements OnInit {
     
   ];
   
-
   constructor(
     private _formBuilder: FormBuilder,
     private _service: PainelCursosService,
     public dialogRef: MatDialogRef<EditarComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: string
+    @Inject(MAT_DIALOG_DATA) public data: Curso
   ) { }
 
   ngOnInit(): void {
     this.initForm();
+
   }
-
-
 
   add(event: MatChipInputEvent): void {
     const input = event.input;
@@ -68,14 +66,56 @@ export class EditarComponent implements OnInit {
       this.disciplina.splice(index, 1);
     }
   }
+  
   initForm(){
     this.form = this._formBuilder.group({
-      nome : [null],
-      descricao: [null],
-      disciplinas: [null]
+      nome : [this.data.name],
+      descricao: [this.data.descricao],
+      disciplinas: [this.data.disciplina]
    })}
 
-   
+   verificarCampos(){
+    let role = this.form.get("tipoCurso")?.value;
+    if(role =="professor"){
+      return true;
+    }
+    return false;
+   }
+
+   editarCurso(){
+
+    let nome = this.form.get("nome")?.value;
+    let descricao = this.form.get("descricao")?.value;
+    let disciplina = this.form.get("disciplinas")?.value;
+
+    let curso: any = {
+      nome: nome,
+      descricao: descricao,
+      disciplina: disciplina
+
+    }
+
+    // Verificar se a dissiplina ou o curso foi selecionando e converter para int
+    if(this.verificarCampos()){
+      disciplina = this.form.get("disciplina")?.value;
+      for(let i = 0; i< disciplina.length; i++){
+        disciplina.push(parseInt(disciplina[i]))
+      }
+
+      curso.disciplinas = disciplina;
+    } else{
+        curso= parseInt(this.form.get("curso")?.value);
+        curso.curso = curso;
+    }
+    //converter o objeto para JSON
+    const cursoJSON = JSON.stringify(curso);
+    //Chamar a função cadastrar
+    
+    this._service.cadastrar(cursoJSON);
+
+    this.close();
+
+   }
 
    close(){
     this.dialogRef.close();
