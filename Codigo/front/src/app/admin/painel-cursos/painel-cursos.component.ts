@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DeletarComponent } from './deletar/deletar.component';
+import { Curso, EditarComponent } from './editar/editar.component';
 
 export interface CursoData {
   id: string;
@@ -24,7 +25,7 @@ export class PainelCursosComponent implements OnInit {
   dataSource: MatTableDataSource<CursoData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
+  
   constructor(
     public dialog: MatDialog,
     private _service: PainelCursosService
@@ -33,6 +34,24 @@ export class PainelCursosComponent implements OnInit {
   ngOnInit(): void {
     this.getCurso();
   }
+
+/*   openEdit(id: String) {
+    this._service.getCursoId(id).subscribe(
+      response => {
+        this.curso = {
+          id: response.id,
+          nome: response.nome,
+          descricao: response.descricao,
+          disciplina: response.disciplina
+        }
+        const dialogRef = this.dialog.open(EditarComponent, {data: this.curso});
+          //curso: [null],
+          //disciplina: [null],
+          //descricao: [null],  
+        }
+        );
+
+  } */
 
   openAdd(){
     const dialogRef = this.dialog.open(CadastrarComponent);

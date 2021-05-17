@@ -19,9 +19,12 @@ const routes: Routes = [
   },
   
   {
-
     path: 'redefinir-senha-nova', component: RedefinirSenhaNovaComponent
   },
+
+  {
+    path: 'adm/disciplinas', loadChildren: () => import('./professor/painel-disciplinas/painel-disciplinas.module').then(m => m.PainelDisciplinasModule)
+  }
   
 
 
