@@ -3,11 +3,11 @@
         <div id="foto">
             <mat-icon>person</mat-icon>
         </div>
-        <p id="user">Elmo Junior</p>
+        <p id="user">{{nomeUser}}</p>
         <div class="button" (click)="redirecionar()">Sair</div>
         <div id="secundario">
             <div>
-                <div class="opcao" *ngFor="let opcao of menu">
+                <div class="opcao" *ngFor="let opcao of menu"  (click)="irSubMenu(opcao.url)" [style]="opcao.color">
                     <mat-icon> {{ opcao.icons }} </mat-icon><p> {{ opcao.opcao }} </p>
                 </div>
             </div>
