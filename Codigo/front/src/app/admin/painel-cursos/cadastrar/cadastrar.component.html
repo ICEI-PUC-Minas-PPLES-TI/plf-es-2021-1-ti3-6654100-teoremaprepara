@@ -8,7 +8,7 @@
             <mat-icon>close</mat-icon>
         </div>
     </div>
-    <form [formGroup]="form" (ngSubmit)="cadastrarCurso()">
+    <form [formGroup]="form">
 
         <div>
             <mat-form-field appearance="outline">
@@ -38,7 +38,7 @@
                          (matChipInputTokenEnd)="add($event)">
                 </mat-chip-list>
               </mat-form-field> -->
-              <mat-form-field class="example-chip-list">
+              <mat-form-field class="example-chip-list" appearance="outline">
                 <mat-chip-list #chipList  formArrayName="fruits">
                     <mat-chip *ngFor="let disciplina of fruitControls.value" [selectable]="selectable" [removable]="removable"
                         (removed)="remove(disciplina)">
@@ -55,10 +55,11 @@
         </div>
             
 
-        <div class="div-btn">
-            <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
-            <button type="submit" mat-flat-button class="confirmar-btn" >Confirmar</button>
-        </div>
+        
     </form>
+    <div class="div-btn">
+        <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
+        <button type="submit" mat-flat-button class="confirmar-btn" (click)="cadastrarCurso()">Confirmar</button>
+    </div>
     
 </div>

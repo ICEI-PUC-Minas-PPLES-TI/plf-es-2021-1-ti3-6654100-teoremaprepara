@@ -1,3 +1,4 @@
+import { Disciplina } from './../painel-cursos/editar/editar.component';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
@@ -21,8 +22,12 @@ export class PainelUsuariosService {
   getCurso(): Observable<any> {
     return this.http.get(`${this.url}curso`).pipe();
   }
-  getDisciplina(): Observable<any> {
-    return this.http.get(`${this.url}disciplina`).pipe();
+  getDisciplinas(id: String): Observable<any>{
+    return this.http.get<any>(`${this.url}curso/${id}`).pipe();
+  }
+  async getDisciplina(id: String): Promise<any> {
+
+    return this.http.get<any>(`${this.url}curso/${id}`).toPromise();
   }
 
   getUser(): Observable<any> {

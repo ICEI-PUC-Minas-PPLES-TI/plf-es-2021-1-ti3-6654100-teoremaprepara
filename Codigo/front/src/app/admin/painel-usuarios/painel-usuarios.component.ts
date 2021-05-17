@@ -3,16 +3,20 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
-import { EditarComponent, User } from './editar/editar.component';
+
+import { EditarComponent } from './editar/editar.component';
 import { DeletarComponent } from './deletar/deletar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PainelUsuariosService } from '../services/painel-usuarios.service';
+import { User } from './user';
 
 export interface UserData {
   id: string;
   name: string;
   progress: string;
 }
+
+
 
 @Component({
   selector: 'app-painel-usuarios',
@@ -24,7 +28,8 @@ export class PainelUsuariosComponent implements OnInit {
   dataSource: MatTableDataSource<UserData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  user: string;
+  user: User;
+  nome: String;
   constructor(
     public dialog: MatDialog,
     private _service: PainelUsuariosService
@@ -37,37 +42,8 @@ export class PainelUsuariosComponent implements OnInit {
     this.getUser();
     
   }
-  openEdit(
-    id: String,
-    fullName: String,
-    dataNascimento: String,
-    telefone: String,
-    rg: String,
-    emailAddress: String,
-    cursoId: String,
-    cursoNome: String,
-    turma: String,
-    role: String,
-    disciplinaId: String,
-    //disciplinaNome: String,
-    ) {
-    const dialogRef = this.dialog.open(EditarComponent,{
-      data: {
-        id: id,
-        fullName: fullName,
-        dataNascimento: "12-12-1999",
-        telefone: telefone,
-        rg: rg,
-        emailAddress: emailAddress,
-        cursoId: cursoId,
-        cursoNome: cursoNome,
-        turma: turma,
-        role: role,
-        disciplinaId: disciplinaId,
-        //disciplinaNome: disciplinaNome,
-      }
-    });
-  }
+  
+
   openDelet(id: String, nome: String) {
     const dialogRef = this.dialog.open(DeletarComponent,{
       data: {
@@ -101,6 +77,31 @@ export class PainelUsuariosComponent implements OnInit {
       let result = data;
       this.dataSource = new MatTableDataSource(result);      
    })
+  }
+  openEdit(id: String) {
+    this._service.getUserId(id).subscribe(
+      response => {
+        this.user = {
+          id: response.id,
+          fullName: response.fullName,
+          dataNascimento: response.dataNascimento,
+          telefone: response.telefone,
+          rg: response.rg,
+          emailAddress: response.emailAddress,
+          cursoId: response.curso.id,
+          cursoNome: response.curso.nome,
+        //   //turma: response.turma,
+          role: response.role,
+        //   // disciplinaId: response.disciplinaId,
+        //   // disciplinaNome: response.disciplinaNome,
+        }
+        const dialogRef = this.dialog.open(EditarComponent, {data: this.user});
+          //curso: [null],
+          //disciplina: [null],
+          //tipoUser: [this.user.role],  
+        }
+        );
+
   }
 
 }

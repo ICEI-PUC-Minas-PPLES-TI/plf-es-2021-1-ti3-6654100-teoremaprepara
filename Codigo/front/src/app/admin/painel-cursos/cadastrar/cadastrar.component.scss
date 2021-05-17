@@ -1,6 +1,6 @@
 @import "../../../app.component.scss";
 #body{
-    height: 50vh;
+    height: 62vh;
     width: 45vw;
 }
 .close{
@@ -22,4 +22,11 @@ mat-form-field{
 }
 #tipoUser{
     width: 25%;
+}
+
+.div-btn{
+    margin-top: 2vh;
+}
+form{
+    margin-bottom: 15vh;
 }
