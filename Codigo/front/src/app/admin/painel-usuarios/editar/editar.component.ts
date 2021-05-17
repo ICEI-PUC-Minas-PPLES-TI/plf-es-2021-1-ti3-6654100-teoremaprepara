@@ -5,7 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { Observable } from 'rxjs';
 
 import { PainelUsuariosService } from '../../services/painel-usuarios.service';
-import { User } from '../user';
+import { User } from '../../../user/professor/painel-disciplinas/user';
 
 
 

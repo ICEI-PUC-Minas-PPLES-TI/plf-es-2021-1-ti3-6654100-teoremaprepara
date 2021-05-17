@@ -23,7 +23,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'adm/disciplinas', loadChildren: () => import('./professor/painel-disciplinas/painel-disciplinas.module').then(m => m.PainelDisciplinasModule)
+    path: 'professor/disciplinas', loadChildren: () => import('./user/professor/painel-disciplinas/painel-disciplinas.module').then(m => m.PainelDisciplinasModule)
   }
   
 

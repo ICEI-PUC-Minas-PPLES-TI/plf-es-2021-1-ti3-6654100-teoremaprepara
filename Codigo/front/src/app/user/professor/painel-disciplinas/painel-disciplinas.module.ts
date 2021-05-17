@@ -21,6 +21,8 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CadastrarAvisosComponent } from './cadastrar-avisos/cadastrar-avisos.component';
+import { CadastrarMaterialComponent } from './cadastrar-material/cadastrar-material.component';
 
 const routes = [
   {
@@ -32,6 +34,8 @@ const routes = [
 @NgModule({
   declarations: [
     PainelDisciplinasComponent,
+    CadastrarAvisosComponent,
+    CadastrarMaterialComponent,
   ],
   imports: [
     CommonModule,

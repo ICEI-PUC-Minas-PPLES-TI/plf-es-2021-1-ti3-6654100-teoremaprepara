@@ -8,7 +8,7 @@ import { EditarComponent } from './editar/editar.component';
 import { DeletarComponent } from './deletar/deletar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PainelUsuariosService } from '../services/painel-usuarios.service';
-import { User } from './user';
+import { User } from '../../user/professor/painel-disciplinas/user';
 
 export interface UserData {
   id: string;
