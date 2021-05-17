@@ -108,9 +108,7 @@
                    <div class="dados"><p> Telefone: {{this.form.get("telefone")?.value}}</p><p>RG: {{this.form.get("rg")?.value}}</p></div>
                    <div class="dados"><p> E-mail: {{this.form.get("email")?.value}}</p><p> Usuário: {{this.form.get("tipoUser")?.value}}</p></div>
                 </div>
-                <div id="alerta" *ngIf = "!verificarPreenchimento()">
-                    <h5>Preencha todos os campos</h5>
-                </div>
+                
                 <div class="div-btn">
                     <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
                     <button type="submit" mat-flat-button class="confirmar-btn" (click)="cadastrarUser()">Confirmar</button>

@@ -1,9 +1,9 @@
 
 <div id="body">
-  <app-menu></app-menu>
+  <app-menu [menu]="menu" [nomeUser]="nomeUser"></app-menu>
 
   <mat-card>
-    <app-header></app-header>
+    <app-header [icon]="iconHeader" [nome]="nomeHeader"></app-header>
     <div id="table">
       <mat-form-field >
         <mat-label>Filtro</mat-label>
