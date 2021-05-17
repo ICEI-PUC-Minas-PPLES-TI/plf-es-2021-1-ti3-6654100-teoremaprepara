@@ -15,4 +15,35 @@ export class PainelDisciplinasService {
   getUserId(id: String): Observable<any>{
     return this.http.get(`${this.url}user/${id}`).pipe();
   }
+  getDisciplinaId(id: String): Observable<any>{
+    return this.http.get(`${this.url}disciplina/${id}`).pipe();
+  }
+  getCursoId(id: String): Observable<any>{
+    return this.http.get(`${this.url}curso/${id}`).pipe();
+  }
+
+  getAvisoDisciplina(id: String): Observable<any>{
+    return this.http.get(`${this.url}avisos?disciplina=${id}`).pipe();
+  }
+  getAviso(id: String): Observable<any>{
+    return this.http.get(`${this.url}avisos/${id}`).pipe();
+  }
+  cadastrarAviso(aviso: any) {
+    this.http.post(`${this.url}avisos`, aviso).subscribe(
+      (result) => {
+        console.log("sucesso");
+      },
+      result => {
+        console.log(result)
+        switch (result.status) {
+          case 401:
+            console.log("401")
+            break;
+          case 400:
+            console.log("400")
+            break;
+        }
+      }
+    );
+  }
 }

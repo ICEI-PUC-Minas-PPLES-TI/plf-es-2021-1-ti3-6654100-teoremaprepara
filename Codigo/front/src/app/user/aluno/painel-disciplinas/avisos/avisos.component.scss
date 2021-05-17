@@ -1,0 +1,45 @@
+@import "../../../../app.component.scss";
+#body{
+    height: 50vh;
+    width: 45vw;
+}
+.close{
+    background-color: #192038;
+}
+.icon, h3{
+    color: #192038;
+}
+#aviso{
+    margin-top: 5vh;
+}
+
+  table {
+    width: 100%;
+  }
+  td> mat-icon {
+    cursor: pointer;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th, th.mat-header-cell {
+    width: 33%;
+    text-align: center;
+  }
+  #delete{
+    margin-left: 1vw;
+    color: #00b377;
+  }
+  .no-data{
+    
+    align-items: center;
+    margin: 0 auto;
+  }
+  .no-data> img{
+    width: 24vw;
+  }
+  .mat-elevation-z8{
+    box-shadow: none;
+  }
