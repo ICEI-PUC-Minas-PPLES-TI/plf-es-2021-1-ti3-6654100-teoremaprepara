@@ -1,25 +1,24 @@
 <div id="body">
-  <app-menu></app-menu>
+  <app-menu [menu]="menu" [nomeUser]="nomeUser"></app-menu>
 
    <mat-card> 
-    <app-header></app-header>
+    <app-header [icon]="iconHeader" [nome]="nomeHeader"></app-header>
     <div id="table">
       <mat-form-field >
         <mat-label>Filtro</mat-label>
-        <input matInput placeholder="Ex. José" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. José" #input>
       </mat-form-field>
 
       <div class="mat-elevation-z8">
-        <table mat-table matSort>
+        <table mat-table [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="id">
-            <th class="disciplina" mat-header-cell *matHeaderCellDef mat-sort-header> Português </th>
-            <th class="icones" mat-header-cell *matHeaderCellDef mat-sort-header> Português </th>
-            <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
+            <th class="disciplina" mat-header-cell *matHeaderCellDef mat-sort-header> Disciplina </th>
+            <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
           </ng-container>
 
           <ng-container matColumnDef="progress">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-            <td mat-cell *matCellDef="let row"> <mat-icon matTooltip="Editar">edit</mat-icon><mat-icon id="delete"  matTooltip="Deletar">delete</mat-icon> </td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
+            <td mat-cell *matCellDef="let row"> <mat-icon matTooltip="Adicionar aviso">campaign</mat-icon><mat-icon id="delete"  matTooltip="Adicionar Material">file_present</mat-icon> </td>
           </ng-container>
 
           <ng-container matColumnDef="name">

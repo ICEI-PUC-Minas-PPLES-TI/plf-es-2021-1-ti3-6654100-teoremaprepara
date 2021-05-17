@@ -16,7 +16,6 @@ import { PainelSimuladosComponent } from './admin/painel-simulados/painel-simula
 import { ComponentsModule } from './shared/components.module';
 import { AuthGuard } from './guards/auth.guard';
 import { PainelCursosComponent } from './admin/painel-cursos/painel-cursos.component';
-import { PainelDisciplinasComponent } from './professor/painel-disciplinas/painel-disciplinas.component';
 
 @NgModule({
   declarations: [
