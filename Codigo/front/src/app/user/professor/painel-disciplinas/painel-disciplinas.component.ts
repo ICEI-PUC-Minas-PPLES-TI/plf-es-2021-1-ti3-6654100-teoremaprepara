@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PainelDisciplinasService } from '../../services/painel-disciplinas.service';
+import { CadastrarMaterialComponent } from './cadastrar-material/cadastrar-material.component';
 
 
 export interface DisciplinaData {
@@ -74,6 +75,20 @@ export class PainelDisciplinasComponent implements OnInit {
       }
     )
   }
+  openCadastrarMaterial(id: String){
+    this._service.getDisciplinaId(id).subscribe(
+      response => {
+        this.disciplina = {
+          id: response.id,
+          name: response.nome,
+          curso: response.curso.nome,
+          professor: response.professores[0].id,
+        };
+        const dialogRef = this.dialog.open(CadastrarMaterialComponent, {data: this.disciplina});
+      }
+    )
+  }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
