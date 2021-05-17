@@ -28,6 +28,19 @@ export class PainelDisciplinasComponent implements OnInit {
     public dialog: MatDialog,
     private _service: PainelDisciplinasService
   ) { }
+  
+  menu = [
+    {
+      opcao: "Disciplinas",
+      icons: "article",
+      url: "professor/disciplinas",
+      color: "color: #7B7EFF",
+    }
+    
+  ];
+  nomeUser = "Paula Fernanda";
+  iconHeader = "article";
+  nomeHeader = "Disciplinas";
 
   ngOnInit(): void {
     this.getUser();

@@ -16,14 +16,10 @@ import { PainelSimuladosComponent } from './admin/painel-simulados/painel-simula
 import { ComponentsModule } from './shared/components.module';
 import { AuthGuard } from './guards/auth.guard';
 import { PainelCursosComponent } from './admin/painel-cursos/painel-cursos.component';
-import { CadastrarAvisosComponent } from './use/professor/painel-disciplinas/cadastrar-avisos/cadastrar-avisos.component';
-import { CadastrarMaterialComponent } from './use/professor/painel-disciplinas/cadastrar-material/cadastrar-material.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastrarAvisosComponent,
-    CadastrarMaterialComponent,
     ],
   imports: [
     BrowserModule,

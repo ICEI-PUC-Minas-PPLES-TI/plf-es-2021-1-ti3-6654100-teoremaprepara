@@ -62,6 +62,7 @@ export class PainelUsuariosComponent implements OnInit {
   nomeUser = "Elmo Junior";
   iconHeader = "group";
   nomeHeader = "Usuários";
+  
   ngOnInit(): void {
     this.getUser();
     
