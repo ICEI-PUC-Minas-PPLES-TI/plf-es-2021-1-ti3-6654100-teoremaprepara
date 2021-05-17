@@ -31,6 +31,29 @@ export class PainelCursosComponent implements OnInit {
     private _service: PainelCursosService
   ) { }
 
+  menu = [
+    {
+      opcao: "Usuários",
+      icons: "group",
+      url: "adm/usuarios",
+      color: "color: #FFFFFF",
+    },
+    {
+      opcao: "Cursos",
+      icons: "article",
+      url: "adm/cursos",
+      color: "color: #7B7EFF",
+    },
+    {
+      opcao: "Simulados",
+      icons: "article",
+      url: "adm/simulados",
+      color: "color: #FFFFFF",
+    },
+  ];
+  nomeUser = "Elmo Junior";
+  iconHeader = "article";
+  nomeHeader = "Cursos";
   ngOnInit(): void {
     this.getCurso();
   }
