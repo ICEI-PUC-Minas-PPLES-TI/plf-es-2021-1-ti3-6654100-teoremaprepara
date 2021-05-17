@@ -19,7 +19,7 @@ import { PainelCursosComponent } from './admin/painel-cursos/painel-cursos.compo
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     ],
   imports: [
     BrowserModule,

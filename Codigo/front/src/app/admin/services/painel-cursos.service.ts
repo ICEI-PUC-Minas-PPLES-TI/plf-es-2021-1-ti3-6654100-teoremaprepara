@@ -37,6 +37,19 @@ export class PainelCursosService {
     );
   }
 
+  editar(id: any, curso: any) {
+
+    this.http.patch(`${this.url}cursos/${id}`, curso).subscribe(
+      success => {
+        console.log("SUCESSO");
+        location.reload();
+      },
+      error => {
+        console.log("ERROR")
+      }
+    );
+  }
+
   delete(id: String) {
     this.http.delete(`${this.url}curso/${id}`).subscribe(
       success => {

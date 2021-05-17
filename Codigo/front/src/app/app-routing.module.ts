@@ -22,9 +22,12 @@ const routes: Routes = [
   },
   
   {
-
     path: 'redefinir-senha-nova', component: RedefinirSenhaNovaComponent
   },
+
+  {
+    path: 'professor/disciplinas', loadChildren: () => import('./user/professor/painel-disciplinas/painel-disciplinas.module').then(m => m.PainelDisciplinasModule)
+  }
   
 
 

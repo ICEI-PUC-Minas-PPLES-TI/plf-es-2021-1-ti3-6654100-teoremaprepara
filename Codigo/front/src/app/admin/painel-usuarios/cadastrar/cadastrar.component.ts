@@ -132,7 +132,8 @@ export class CadastrarComponent implements OnInit {
     let dataNascimento = this.datePipe.transform(this.form.get("data")?.value,'dd-MM-yyyy');
     let role = this.form.get("tipoUser")?.value;
     let curso;
-    let disciplinas;
+    let disciplinas = [];
+    let disciplinasInt = [];
     // montando o objeto com os nomes que tem no banco
     let user:any = {
       emailAddress: emailAddress,
@@ -146,7 +147,12 @@ export class CadastrarComponent implements OnInit {
     // Verificar se a dissiplina ou o curso foi selecionando e converter para int
     if(this.verificarCampos()){
       disciplinas = this.form.get("disciplinas")?.value;
-      user.disciplinas = disciplinas;
+      for(let i = 0; i< disciplinas.length; i++){
+        disciplinasInt.push(parseInt(disciplinas[i]))
+      }
+
+
+      user.disciplinas = disciplinasInt;
     } else{
         curso= parseInt(this.form.get("curso")?.value);
         user.curso = curso;
