@@ -18,7 +18,7 @@
 
           <ng-container matColumnDef="progress">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
-            <td mat-cell *matCellDef="let row"> <mat-icon matTooltip="Adicionar aviso">campaign</mat-icon><mat-icon id="delete"  matTooltip="Adicionar Material">file_present</mat-icon> </td>
+            <td mat-cell *matCellDef="let row"> <mat-icon matTooltip="Adicionar aviso" (click)="openCadastrarAviso(row.id)">campaign</mat-icon><mat-icon id="delete"  matTooltip="Adicionar Material">file_present</mat-icon> </td>
           </ng-container>
 
           <ng-container matColumnDef="name">

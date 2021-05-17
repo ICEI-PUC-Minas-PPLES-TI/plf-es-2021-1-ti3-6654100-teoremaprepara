@@ -17,9 +17,10 @@ import { ComponentsModule } from './shared/components.module';
 import { AuthGuard } from './guards/auth.guard';
 import { PainelCursosComponent } from './admin/painel-cursos/painel-cursos.component';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
     ],
   imports: [
     BrowserModule,

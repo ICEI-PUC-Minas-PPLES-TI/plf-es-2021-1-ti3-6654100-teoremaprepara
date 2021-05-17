@@ -27,6 +27,9 @@ const routes: Routes = [
 
   {
     path: 'professor/disciplinas', loadChildren: () => import('./user/professor/painel-disciplinas/painel-disciplinas.module').then(m => m.PainelDisciplinasModule)
+  },
+  {
+    path: 'aluno/disciplinas', loadChildren: () => import('./user/aluno/painel-disciplinas/painel-disciplinas.module').then(m => m.PaineldisciplinasModule)
   }
   
 
