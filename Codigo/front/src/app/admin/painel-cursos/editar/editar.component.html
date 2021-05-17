@@ -1,14 +1,14 @@
 <div id="body">
     <div class="header">
         <div>
-            <mat-icon class="icon">person_add</mat-icon>
-            <h3>Cadastrar usuário</h3>
+            <mat-icon class="icon">edit</mat-icon>
+            <h3>Editar curso</h3>
         </div>
         <div class="close" (click)="close()">
             <mat-icon>close</mat-icon>
         </div>
     </div>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="editarCurso">
 
         <div>
             <mat-form-field appearance="outline">

@@ -94,9 +94,6 @@ export class CadastrarComponent implements OnInit {
       }})
    }
    
-  
-
-
 
    verificarCampos(){
     let role = this.form.get("tipoUser")?.value;
