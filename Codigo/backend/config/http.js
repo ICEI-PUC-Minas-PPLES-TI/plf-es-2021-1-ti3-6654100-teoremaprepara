@@ -29,16 +29,17 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    // order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    // ],
+    order: [
+      'cookieSameSiteHandler',
+      'cookieParser',
+      'session',
+      'bodyParser',
+      'compress',
+      'poweredBy',
+      'router',
+      'www',
+      'favicon',
+    ],
 
 
     /***************************************************************************
@@ -54,6 +55,26 @@ module.exports.http = {
     //   var middlewareFn = skipper({ strict: true });
     //   return middlewareFn;
     // })(),
+
+    cookieSameSiteHandler: function(req, res, next) {
+      onHeaders(res, function() {
+        const currentCookieSets = res.get('set-cookie');
+
+        if (currentCookieSets && currentCookieSets.length) {
+          for (let i = 0; i < currentCookieSets.length; i++) {
+            let currentCookieSet = currentCookieSets[i];
+            if (sails.config.session.cookie.secure) {
+              currentCookieSet += '; Secure; SameSite=None';
+            } else {
+              currentCookieSet += '; SameSite=Strict';
+            }
+            currentCookieSets[i] = currentCookieSet;
+          }
+          res.setHeader('set-cookie', currentCookieSets);
+        }
+      });
+      return next();
+    }
 
   },
 
