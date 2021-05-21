@@ -110,6 +110,7 @@ and exposed as \`req.me\`.)`
 
 
     return {
+      id: userRecord.id,
       emailAddress: userRecord.emailAddress,
       role: userRecord.role,
     };
