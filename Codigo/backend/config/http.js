@@ -9,6 +9,9 @@
  * https://sailsjs.com/config/http
  */
 
+const onHeaders = require('on-headers');
+
+
 module.exports.http = {
 
   /****************************************************************************
