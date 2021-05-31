@@ -20,7 +20,7 @@
   
             <ng-container matColumnDef="progress">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Ações </th>
-              <td mat-cell *matCellDef="let row"> <mat-icon (click)="openEdit(row.id)" matTooltip="Editar">edit</mat-icon><mat-icon id="delete" matTooltip="Deletar" (click)="openDelet(row.id, row.nome)">delete</mat-icon> </td>
+              <td mat-cell *matCellDef="let row"> <mat-icon (click)="openEdit(row.id)" matTooltip="Editar">edit</mat-icon><mat-icon id="delete" matTooltip="Deletar" (click)="openDelet(row.id, row.nome)">delete</mat-icon><mat-icon (click)="openAdicionarSimulado(row.id)" id="simulado" matTooltip="Adicionar Simulado">post_add</mat-icon></td>
             </ng-container>
   
             <ng-container matColumnDef="name">

@@ -43,7 +43,7 @@ export class PainelCursosService {
 
   editar(id: any, curso: any) {
 
-    this.http.patch(`${this.url}cursos/${id}`, curso).subscribe(
+    this.http.patch(`${this.url}curso/${id}`, curso).subscribe(
       success => {
         console.log("SUCESSO");
         location.reload();

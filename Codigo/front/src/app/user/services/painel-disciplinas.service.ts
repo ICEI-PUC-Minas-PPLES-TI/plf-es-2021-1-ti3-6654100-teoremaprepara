@@ -28,6 +28,9 @@ export class PainelDisciplinasService {
   getAviso(id: String): Observable<any>{
     return this.http.get(`${this.url}avisos/${id}`).pipe();
   }
+  getMateriaisDisciplina(id: String): Observable<any>{
+    return this.http.get(`${this.url}material?disciplina=${id}`).pipe();
+  }
   cadastrarAviso(aviso: any) {
     this.http.post(`${this.url}avisos`, aviso).subscribe(
       (result) => {

@@ -42,6 +42,18 @@ export class PainelDisciplinasComponent implements OnInit {
       icons: "article",
       url: "professor/disciplinas",
       color: "color: #7B7EFF",
+    },
+    {
+      opcao: "Materiais",
+      icons: "file_present",
+      url: "professor/materiais",
+      color: "color: #FFFFFF",
+    },
+    {
+      opcao: "Avisos",
+      icons: "campaign",
+      url: "professor/avisos",
+      color: "color: #FFFFFF",
     }
     
   ];

@@ -2,9 +2,12 @@
     margin: 2vh;
     display: flex;
   }
-  mat-card{
+  .card{
     margin: 0px 5vw;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+      
   }
   table {
     width: 100%;
@@ -21,10 +24,7 @@
     width: 33%;
     text-align: center;
   }
-  #delete{
-    margin-left: 1vw;
-    color: #00b377;
-  }
+  
   .no-data{
     
     align-items: center;
@@ -35,4 +35,39 @@
   }
   .mat-elevation-z8{
     box-shadow: none;
+  }
+  .disciplina{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+  }
+  .card-disciplina{
+    padding: 0;
+    height: 28vh;
+    width: 18vw;
+    margin: 10%;
+    border-radius: 5%;
+    //background-color: #9F55AD;
+    h1 {
+      color: white;
+      font-size: 2.2vw;
+      margin: 20% 10%;
+    }
+    div {
+      position: absolute;
+      bottom: 0;
+      height: 10vh;
+      width: 100%;
+      border-radius: 0 0 5% 5%;
+      background-color: white;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      mat-icon{
+        font-size: 2rem;
+        margin-right: 2vw;
+        color: #9F55AD;
+        cursor: pointer;
+      }
+    }
   }

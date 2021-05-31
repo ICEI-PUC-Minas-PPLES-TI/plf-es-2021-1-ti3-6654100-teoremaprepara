@@ -1,4 +1,3 @@
-
 <div id="body">
     <app-menu [menu]="menu" [nomeUser]="nomeUser"></app-menu>
     
@@ -7,16 +6,22 @@
         <mat-accordion>
            
               <mat-expansion-panel (opened)="panelOpenState = true"
-                                   (closed)="panelOpenState = false">
+                                   (closed)="panelOpenState = false"
+                                   *ngFor="let disciplina of this.disciplinas; let i = index" (click)="getAvisos(disciplina.id)"
+                                   >
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Nome do curso
+                    {{disciplina.nome}}
                   </mat-panel-title>
                   <mat-panel-description>
-                    Clique para visualizar todos os simulados cadastrados
                   </mat-panel-description>
                 </mat-expansion-panel-header>
-                <div class="simulado"><p>Teste numero 1</p> <div class="div-add-resultado"><mat-icon>add</mat-icon><span>Adicionar resultados</span></div></div>
+                <div class="avisos" *ngFor="let aviso of this.avisos; let i = index">
+                    <p>
+                        <b>{{aviso.titulo}}</b> <span>{{aviso.assunto}}</span>
+                    </p>
+                    
+                </div>
                 
               </mat-expansion-panel>
             </mat-accordion>
@@ -24,4 +29,3 @@
       </mat-card>
       
     </div>
-  

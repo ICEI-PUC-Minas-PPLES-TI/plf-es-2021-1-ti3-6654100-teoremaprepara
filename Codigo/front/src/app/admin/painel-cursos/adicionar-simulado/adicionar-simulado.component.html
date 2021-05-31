@@ -1,0 +1,29 @@
+<div id="body">
+    <div class="header">
+        <div>
+            <mat-icon class="icon">post_add</mat-icon>
+            <h3>Adicionar Simulado</h3>
+        </div>
+        <div class="close" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    <form [formGroup]="form">
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Descrição</mat-label>
+                <input matInput formControlName="descricao">
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="div-btn">
+        <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
+        <button type="submit" mat-flat-button class="confirmar-btn">Confirmar</button>
+    </div>
+    
+</div>
