@@ -50,6 +50,9 @@ td, th, th.mat-header-cell {
     margin: 0 auto;
     display: flex;
     cursor: pointer;
+    p{
+        display: none;
+    }
 }
 #adicao > mat-icon{
     margin: 0 auto;
@@ -58,10 +61,19 @@ td, th, th.mat-header-cell {
     height: 2.5rem;
     align-items: center;    
 }
-// #adicao:hover{
-//     width: 10vw;
-//     border-radius: 25%;
-// }
+#adicao:hover{ 
+    width: 10vw;
+    border-radius: 52px;
+    mat-icon{
+        margin: 0 5%;
+    }
+    p{
+        display: block;
+        color: #ffffff;
+        margin: 0;
+        font-size: 1.8em;
+    }
+}
 
 // ::ng-deep .opcao:first-child{
 //     color: #7B7EFF !important;

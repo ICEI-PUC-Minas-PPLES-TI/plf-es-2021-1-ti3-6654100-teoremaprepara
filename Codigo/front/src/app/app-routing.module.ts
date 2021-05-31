@@ -29,6 +29,12 @@ const routes: Routes = [
     path: 'professor/disciplinas', loadChildren: () => import('./user/professor/painel-disciplinas/painel-disciplinas.module').then(m => m.PainelDisciplinasModule)
   },
   {
+    path: 'professor/materiais', loadChildren: () => import('./user/professor/painel-materiais/painel-materiais.module').then(m => m.PainelMateriaisModule)
+  },
+  {
+    path: 'professor/avisos', loadChildren: () => import('./user/professor/painel-avisos/painel-avisos.module').then(m => m.PainelAvisosModule)
+  },
+  {
     path: 'aluno/disciplinas', loadChildren: () => import('./user/aluno/painel-disciplinas/painel-disciplinas.module').then(m => m.PaineldisciplinasModule)
   }
   

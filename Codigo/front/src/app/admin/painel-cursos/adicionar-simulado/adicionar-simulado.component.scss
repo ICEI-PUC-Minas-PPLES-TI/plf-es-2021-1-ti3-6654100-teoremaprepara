@@ -1,0 +1,18 @@
+@import "../../../app.component.scss";
+#body{
+    height: 40vh;
+    width: 45vw;
+}
+.close{
+    background-color: #192038;
+}
+.icon, h3{
+    color: #192038;
+}
+form{
+    margin: 5vh 0;
+}
+form> div{
+    display: flex;
+    justify-content: space-around;
+}

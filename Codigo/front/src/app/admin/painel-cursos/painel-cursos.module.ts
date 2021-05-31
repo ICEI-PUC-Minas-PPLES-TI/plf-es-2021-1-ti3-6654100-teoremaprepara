@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EditarComponent } from './editar/editar.component';
 import { DeletarComponent } from './deletar/deletar.component';
+import { AdicionarSimuladoComponent } from './adicionar-simulado/adicionar-simulado.component';
 const routes = [
   {
       path: '',
@@ -35,7 +36,8 @@ const routes = [
     PainelCursosComponent,
     CadastrarComponent,
     EditarComponent,
-    DeletarComponent
+    DeletarComponent,
+    AdicionarSimuladoComponent
   ],
   imports: [
     CommonModule,
