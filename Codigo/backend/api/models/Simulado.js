@@ -20,8 +20,8 @@
      //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
      //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
      //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-     disciplina: {
-       model: 'disciplina'
+     curso: {
+       model: 'curso'
      }  
    }, 
  };
