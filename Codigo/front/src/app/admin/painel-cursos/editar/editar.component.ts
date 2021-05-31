@@ -11,8 +11,8 @@ export interface Disciplina {
 
 export interface Curso {
   name: string;
-  descricao: String;
-  id: String;
+  descricao: string;
+  id: string;
   disciplina: [];
 }
 
@@ -42,7 +42,7 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-
+    console.log(this.data)
   }
 
   add(event: MatChipInputEvent): void {
@@ -71,8 +71,24 @@ export class EditarComponent implements OnInit {
     this.form = this._formBuilder.group({
       nome : [this.data.name],
       descricao: [this.data.descricao],
-      disciplinas: [this.data.disciplina]
+      disciplinas: [this.disciplinas()],
    })}
+
+   disciplinas(): any{
+     let tam = this.data.disciplina.length;
+     let aux: any [] = [];
+     for(let i = 0; i<tam; i++){
+       aux.push(this.data.disciplina[i]);
+      
+     }
+    if(aux){
+       for(let x = 0; x<aux.length; x++){
+        this.disciplina.push({name: aux[x].nome.trim()})
+       }
+    }
+    console.log(this.disciplina)
+    return this.disciplina;
+   }
 
    verificarCampos(){
     let role = this.form.get("tipoCurso")?.value;
@@ -81,12 +97,12 @@ export class EditarComponent implements OnInit {
     }
     return false;
    }
-
+   
    editarCurso(){
 
     let nome = this.form.get("nome")?.value;
     let descricao = this.form.get("descricao")?.value;
-    let disciplina = this.form.get("disciplinas")?.value;
+    let disciplina = this.disciplina;
 
     let curso: any = {
       nome: nome,
@@ -94,24 +110,12 @@ export class EditarComponent implements OnInit {
       disciplina: disciplina
 
     }
-
-    // Verificar se a dissiplina ou o curso foi selecionando e converter para int
-    if(this.verificarCampos()){
-      disciplina = this.form.get("disciplina")?.value;
-      for(let i = 0; i< disciplina.length; i++){
-        disciplina.push(parseInt(disciplina[i]))
-      }
-
-      curso.disciplinas = disciplina;
-    } else{
-        curso= parseInt(this.form.get("curso")?.value);
-        curso.curso = curso;
-    }
     //converter o objeto para JSON
     const cursoJSON = JSON.stringify(curso);
     //Chamar a função cadastrar
-    
-    this._service.cadastrar(cursoJSON);
+    console.log(curso);
+    let idInt = parseInt(this.data.id);
+    this._service.editar(idInt,cursoJSON);
 
     this.close();
 

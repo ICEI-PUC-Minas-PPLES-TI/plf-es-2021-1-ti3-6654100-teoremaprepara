@@ -8,7 +8,7 @@
             <mat-icon>close</mat-icon>
         </div>
     </div>
-    <form [formGroup]="form" (ngSubmit)="editarCurso">
+    <form [formGroup]="form">
 
         <div>
             <mat-form-field appearance="outline">
@@ -25,7 +25,7 @@
         <div>
             <mat-form-field class="example-chip-list">
                 <mat-label>Disciplinas</mat-label>
-                <mat-chip-list #chipList formControlName="disciplinas">
+                <mat-chip-list #chipList formArrayName="disciplinas">
                   <mat-chip *ngFor="let disciplinas of disciplina" [selectable]="selectable"
                            [removable]="removable" (removed)="remove(disciplinas)">
                     {{disciplinas.name}}
@@ -43,7 +43,7 @@
 
         <div class="div-btn">
             <button mat-flat-button class="cancelar-btn" (click)="close()">Cancelar</button>
-            <button type="submit" mat-flat-button class="confirmar-btn" >Confirmar</button>
+            <button type="submit" mat-flat-button class="confirmar-btn" (click)="editarCurso()">Confirmar</button>
         </div>
     </form>
     

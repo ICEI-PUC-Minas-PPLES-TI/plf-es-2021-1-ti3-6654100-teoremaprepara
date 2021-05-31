@@ -6,10 +6,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PainelDisciplinasService } from '../../services/painel-disciplinas.service';
 import { AvisosComponent } from './avisos/avisos.component';
 
-export interface DisciplinaData {
+
+export interface Disciplina {
   id: string;
-  name: string;
-  progress: string;
+  nome: string;
 }
 
 @Component({
@@ -19,11 +19,6 @@ export interface DisciplinaData {
 })
 export class PainelDisciplinasComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'progress'];
-  dataSource: MatTableDataSource<DisciplinaData>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
   constructor(
     public dialog: MatDialog,
     private _service: PainelDisciplinasService,
@@ -32,7 +27,7 @@ export class PainelDisciplinasComponent implements OnInit {
   menu = [
     {
       opcao: "Disciplinas",
-      icons: "article",
+      icons: "menu_book",
       url: "aluno/disciplinas",
       color: "color: #7B7EFF",
     },
@@ -44,20 +39,24 @@ export class PainelDisciplinasComponent implements OnInit {
     }
     
   ];
+
+
   nomeUser = "Samara Alves";
   iconHeader = "article";
   nomeHeader = "Disciplinas";
-
+  disciplinas: Disciplina[];
+  cor = ["#9F55AD", "#436E8E", "#E38569", "#21ABC9", "#97A7E2", "#E9BD23", "#C7398E", "#D893E5", "#2F970B"];
   ngOnInit(): void {
     this.getUser();
+    
   }
 
   getUser(){
     const id = "18";
     this._service.getCursoId(id).subscribe(data => {
         let result = data.disciplinas;
-        console.log(result)
-        this.dataSource = new MatTableDataSource(result);
+        this.disciplinas = result;
+
         }
       );
   }
@@ -65,17 +64,17 @@ export class PainelDisciplinasComponent implements OnInit {
   openVisualizarAvisos(id: string){
     const MatDialogRef = this.dialog.open(AvisosComponent, {data: id});
   }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  gera_cor(index: any) {
+    const hexadecimais = '0123456789ABCDEF';
+    
+    // Pega um número aleatório no array acima
+    for (var i = 0; i < this.cor.length; i++ ) {
+      if(i==index){
+        return  this.cor[i];
+      }
     }
-  }
-
+    return "#fffff"
+    
+}
+  
 }

@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DeletarComponent } from './deletar/deletar.component';
 import { Curso, EditarComponent } from './editar/editar.component';
+import { AdicionarSimuladoComponent } from './adicionar-simulado/adicionar-simulado.component';
 
 export interface CursoData {
   id: string;
@@ -74,8 +75,20 @@ export class PainelCursosComponent implements OnInit {
           //descricao: [null],  
         }
         );
-
-  }  
+  }
+  openAdicionarSimulado(id: String) {
+    this._service.getCursoId(id).subscribe(
+      response => {
+        this.curso = {
+          id: response.id,
+          name: response.nome,
+          descricao: response.descricao,
+          disciplina: response.disciplinas
+        }
+        const dialogRef = this.dialog.open(AdicionarSimuladoComponent, {data: this.curso}); 
+        }
+        );
+  }
 
   openAdd(){
     const dialogRef = this.dialog.open(CadastrarComponent);
