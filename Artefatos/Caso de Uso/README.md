@@ -11,4 +11,4 @@ As marcações abaixo mostram a evolução das atualizações do diagrama de cas
 - [X] Sprint 3 - Atualizado em 24/04 - Casos de uso implementados: Admnistrador cadastra curso e disciplina
 - [X] Sprint 4 - Atualizado em 05/05 - Casos de uso implementados: Professor cadastra aviso a matérias; Professor cadastra materiais a matérias; Aluno consulta aviso na matéria
 - [X] Sprint 5 - Atualizado em 24/05 - Casos de uso implementados: Professor cadastra resultado de simulado; Aluno consulta resultado de simulados
-- [ ] Sprint 6 -
+- [X] Sprint 6 - Atualizado em 06/06 - Casos de uso implementados: Diretor acessa formulários de inscrição; Usuário externo: se inscreve em um curso, requisita aluguel de sala, agenda aula gratuita.
