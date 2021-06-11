@@ -1,11 +1,9 @@
-import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { PainelUsuariosService } from '../../services/painel-usuarios.service';
-import { User } from '../../../user/professor/painel-disciplinas/user';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -16,97 +14,131 @@ import { User } from '../../../user/professor/painel-disciplinas/user';
 })
 export class EditarComponent implements OnInit {
 
-  cursoId: string = this.data.cursoId.toString();
-  // disciplinaId: string = this.data.disciplinaId.toString();
   form: FormGroup;
   selectedValue: string;
   cursos: any;
   disciplinas: any;
-  user: User;
-
+  user: any;
+  verificarForm = false;
   public tel = ['(', /[1-9]/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   public rg = [/[1-9]/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/]
+  
 
 
   constructor(
     private _service: PainelUsuariosService,
     private _formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<EditarComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User,
-  ) { }
+    private datePipe: DatePipe,
+    @Inject(MAT_DIALOG_DATA) public data: string,
+  ) {}
 
   ngOnInit(): void {
-    //this.getUser(this.data.id)
     this.getCurso();
-    // this.getDisciplina();
-    this.initForm();
-    console.log(this.data.cursoId)
-  }
+    this.initForm(this.data);
+  } 
 
-  getCurso() {
-    this._service.getCurso().subscribe(data => {
-      this.cursos = data;
-
-    })
-  }
-  // getDisciplina() {
-  //   this._service.getDisciplina().subscribe(data => {
-  //     this.disciplinas = data;
-  //   })
-  // }
-
-  initForm() {
+  initForm(id: string) { 
     
-    this.form = this._formBuilder.group({
-      nome: [this.data.fullName],
-      data: [this.data.dataNascimento],
-      telefone: [this.data.telefone],
-      rg: [this.data.rg],
-      email: [this.data.emailAddress],
-      curso: [this.cursoId],
-      //disciplina: [null],
-      tipoUser: [this.data.role],  
+
+    this._service.getUserId(id).subscribe(data=>{
+      
+      this.user = data;
+      this.form = this._formBuilder.group({
+        nome : [data.fullName, Validators.required],
+        data: [data.dataNascimento, Validators.required],
+        telefone: [data.telefone, Validators.required],
+        rg: [data.rg, Validators.required],
+        email: [data.emailAddress, Validators.required]
+     })
+     this.verificarForm = true;
+     this.preencherDados(this.user);
+      
     });
   }
 
-  verificarCampos() {
+  exibirForm(){
+    return this.verificarForm ;
+  }
+ 
+
+  editarUser() {
+    
+    let emailAddress = this.form.get("email")?.value;
+    let password = "teorema";
+    let fullName = this.form.get("nome")?.value;
+    let rg = this.form.get("rg")?.value;
+    let telefone =  this.form.get("telefone")?.value; 
+    let dataNascimento = this.form.get("data")?.value;
     let role = this.form.get("tipoUser")?.value;
-    if (role == "professor") {
+    
+    let user:any = {
+      emailAddress: emailAddress,
+      password: password,
+      fullName: fullName,
+      telefone: telefone,
+      rg: rg,
+      dataNascimento: dataNascimento,
+      role: role,  
+    };
+    const userJSON = JSON.stringify(user);
+    this._service.editar(this.data, userJSON);
+    this.close();
+  }
+
+  verificarPreenchimento(){
+    let emailAddress = this.form.get("email")?.value;
+    let fullName = this.form.get("nome")?.value;
+    let rg = this.form.get("rg")?.value;
+    let telefone =  this.form.get("telefone")?.value; 
+    let dataNascimento = this.datePipe.transform(this.form.get("data")?.value,'dd-MM-yyyy');
+    
+    if(emailAddress && fullName && rg && telefone && dataNascimento){
       return true;
     }
     return false;
-  }
-  editarUser() {
-    // let id = this.data;
-    // let emailAddress = this.form.get("email")?.value;
-    // let fullName = this.form.get("nome")?.value;
-    // let rg = this.form.get("rg")?.value;
-    // let dataNascimento = this.form.get("data")?.value;
-    // let role = this.form.get("tipoUser")?.value;
-    // let curso;
-    // let disciplina;
+   }
 
-    // let user:any = {
-    //   id: id,
-    //   emailAddress: emailAddress,
-    //   fullName: fullName,
-    //   rg: rg,
-    //   dataNascimento: dataNascimento,
-    //   role: role      
-    // };
 
-    // if(this.verificarCampos()){
-    //   disciplina = parseInt(this.form.get("disciplina")?.value);
-    //   user.disciplina = disciplina;
-    // } else{
-    //     curso= parseInt(this.form.get("curso")?.value);
-    //     user.curso = curso;
-    // }
-    // const userJSON = JSON.stringify(user);
-    // this._service.editar(id, userJSON);
-    this.close();
-    //location.reload();
+  verificarCampos(){
+    
+    if(this.user.role =="professor"){
+      return true;
+    }
+    return false;
+   }
+
+  getDisciplina(idCurso: string, idDisciplina: string){
+    let result: any;
+    return this._service.getDisciplina(idCurso).then(async (retorno: any) =>{
+     if(retorno){
+       for(let disciplina of retorno.disciplinas){
+         if(disciplina.id == idDisciplina){
+          result = ' '+disciplina.nome+' | '+retorno.nome+';  ';
+         }
+       }
+       if(this.disciplinas != undefined){
+        this.disciplinas = result.concat(this.disciplinas);
+       } else{
+         this.disciplinas = result;
+       }
+     }})
   }
+
+  getCurso(){
+    this._service.getCurso().subscribe(data => {
+      this.cursos = data;
+   })
+  }
+
+preencherDados(data:any) {
+  if(data.role == "professor") {
+    data.disciplinas.forEach((element: { id: any; curso: any}) => {
+      this.getDisciplina(element.curso, element.id);      
+    });
+  }
+}
+
 
   close() {
     this.dialogRef.close();
