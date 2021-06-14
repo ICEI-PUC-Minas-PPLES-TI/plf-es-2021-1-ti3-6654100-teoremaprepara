@@ -45,7 +45,7 @@
                     <h1>{{disciplina.nome}}</h1>
                     <div>
                         <mat-icon [style.color]="this.gera_cor(i)" matTooltip="Visualizar aviso" (click)="openVisualizarAvisos(disciplina.id)" >campaign</mat-icon>
-                        <mat-icon [style.color]="this.gera_cor(i)" matTooltip="Visualizar Material">file_present</mat-icon>
+                        <mat-icon [style.color]="this.gera_cor(i)" matTooltip="Visualizar Material" (click)="openVisualizarMateriais(disciplina.id)">file_present</mat-icon>
                     </div>
                 </mat-card>
             </div>

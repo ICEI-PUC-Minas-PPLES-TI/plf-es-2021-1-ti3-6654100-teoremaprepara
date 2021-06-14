@@ -1,0 +1,76 @@
+#body {
+  margin: 2vh;
+  display: flex;
+}
+mat-card {
+  margin: 0px 5vw;
+  width: 100%;
+}
+
+.simulado {
+  display: flex;
+  padding: 1vw;
+}
+.div-add-resultado {
+  margin-left: 9.5vw;
+  align-items: center;
+  text-align: center;
+  color: #00a055;
+  .mat-icon {
+    margin-right: 1vw;
+    width: 1.2vw;
+    height: 1.2vw;
+    font-size: 1.2vw;
+  }
+  span {
+    font-size: 1.2vw;
+  }
+}
+
+.simulado {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 20px;
+  font-family: "Roboto", sans-serif;
+
+  color: #1f2c4f;
+}
+
+.resultado-nota {
+  margin: 50px;
+}
+
+.resultado-prova {
+  margin: 50px;
+}
+
+.resultado-redacao {
+  margin: 50px;
+}
+
+.resultado-final {
+  text-align: center;
+  font-size: 35px;
+  font-style: bold;
+  font-family: "Roboto", sans-serif;
+
+  color: #1f2c4f;
+}
+
+.nota {
+  font-size: 35px;
+  font-style: bold;
+  margin-bottom: 20px;
+}
+
+.data {
+  font-size: 20px;
+}
+
+.acertos {
+  font-size: 15px;
+}

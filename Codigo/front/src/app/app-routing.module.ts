@@ -36,10 +36,10 @@ const routes: Routes = [
   },
   {
     path: 'aluno/disciplinas', loadChildren: () => import('./user/aluno/painel-disciplinas/painel-disciplinas.module').then(m => m.PaineldisciplinasModule)
-  }
-  
-
-
+  },
+  {
+    path: 'aluno/simulados', loadChildren: () => import('./user/aluno/painel-simulados/painel-simulados.module').then(m => m.PainelSimuladosModule)
+  },
 
 ];
 

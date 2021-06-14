@@ -24,6 +24,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TextMaskModule } from 'angular2-text-mask';
 import { AvisoComponent } from './avisos/aviso/aviso.component';
+import { MaterialComponent } from './materiais/material/material.component';
 
 const routes = [
   {
@@ -33,7 +34,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [ PainelDisciplinasComponent,AvisosComponent, MateriaisComponent, AvisoComponent],
+  declarations: [ PainelDisciplinasComponent,AvisosComponent, MateriaisComponent, AvisoComponent, MaterialComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

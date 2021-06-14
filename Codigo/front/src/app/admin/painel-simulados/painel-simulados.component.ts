@@ -38,6 +38,7 @@ export class PainelSimuladosComponent implements OnInit {
   iconHeader = "article";
   nomeHeader = "Simulados";
   panelOpenState = false;
+  
   ngOnInit(): void {
   }
 
