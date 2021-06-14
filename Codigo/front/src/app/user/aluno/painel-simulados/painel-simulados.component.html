@@ -1,0 +1,43 @@
+<div id="body">
+  <app-menu [menu]="menu" [nomeUser]="nomeUser"></app-menu>
+
+  <mat-card>
+    <app-header [icon]="iconHeader" [nome]="nomeHeader"></app-header>
+    <mat-accordion>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            1° Simulado
+          </mat-panel-title>
+          <mat-panel-description>
+            Clique para visualizar sua nota no simulado
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="simulado">
+          <div class="resultado-nota">
+            <p class="nota">201,6</p>
+            <p class="data">06 de Setembro de 2020</p>
+            <p class="acertos">Acertos: 36 de 45 questões</p>
+          </div>
+          <div class="resultado-prova">
+            <p class="nota">341,6</p>
+            <p class="data">Prova objetiva</p>
+            <p class="acertos">Acertos: 36 de 45 questões</p>
+          </div>
+          <div class="resultado-redacao">
+            <p class="nota">630</p>
+            <p class="data">Redação</p>
+            <p class="acertos">Acertos: 36 de 45 questões</p>
+          </div>
+        </div>
+        <div class="resultado-final">
+          <p class="total">Total: 485,80</p>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </mat-card>
+
+</div>

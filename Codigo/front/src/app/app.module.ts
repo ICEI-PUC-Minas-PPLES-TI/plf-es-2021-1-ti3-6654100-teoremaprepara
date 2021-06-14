@@ -15,10 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './shared/components.module';
 import { AuthGuard } from './guards/auth.guard';
 
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     ],
   imports: [
     BrowserModule,

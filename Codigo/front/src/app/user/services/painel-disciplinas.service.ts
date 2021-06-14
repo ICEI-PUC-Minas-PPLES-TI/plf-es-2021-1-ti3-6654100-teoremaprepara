@@ -21,7 +21,6 @@ export class PainelDisciplinasService {
   getCursoId(id: String): Observable<any>{
     return this.http.get(`${this.url}curso/${id}`).pipe();
   }
-
   getAvisoDisciplina(id: String): Observable<any>{
     return this.http.get(`${this.url}avisos?disciplina=${id}`).pipe();
   }
@@ -30,6 +29,9 @@ export class PainelDisciplinasService {
   }
   getMateriaisDisciplina(id: String): Observable<any>{
     return this.http.get(`${this.url}material?disciplina=${id}`).pipe();
+  }
+  getMaterial(id: String): Observable<any>{
+    return this.http.get(`${this.url}material/${id}`).pipe();
   }
   cadastrarAviso(aviso: any) {
     this.http.post(`${this.url}avisos`, aviso).subscribe(

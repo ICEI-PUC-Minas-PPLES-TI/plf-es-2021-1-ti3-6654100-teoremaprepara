@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PainelDisciplinasService } from '../../services/painel-disciplinas.service';
 import { AvisosComponent } from './avisos/avisos.component';
+import { MateriaisComponent } from './materiais/materiais.component';
 
 
 export interface Disciplina {
@@ -64,6 +65,11 @@ export class PainelDisciplinasComponent implements OnInit {
   openVisualizarAvisos(id: string){
     const MatDialogRef = this.dialog.open(AvisosComponent, {data: id});
   }
+
+  openVisualizarMateriais(id: string) {
+    const MatDialogRef = this.dialog.open(MateriaisComponent, {data: id});
+  }
+
   gera_cor(index: any) {
     const hexadecimais = '0123456789ABCDEF';
     
