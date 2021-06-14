@@ -1,6 +1,6 @@
 import { Disciplina } from './../../painel-cursos/editar/editar.component';
 import { Component, OnInit, NgModule } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { PainelUsuariosService } from '../../services/painel-usuarios.service';
 import { DatePipe } from '@angular/common';
@@ -18,7 +18,6 @@ export class CadastrarComponent implements OnInit {
   
   cursos: any;
   disciplinas: any;
-  asd: any;
 
   public tel = ['(', /[1-9]/, /\d/, ')',/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   public rg = [/[1-9]/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/]
@@ -65,16 +64,15 @@ export class CadastrarComponent implements OnInit {
 
   initForm(){
     this.form = this._formBuilder.group({
-      nome : [null],
-      data: [null],
-      telefone: [null],
-      rg: [null],
-      email: [null],
-      curso: [null],
-      disciplinas: [null],
-      //turma: [null],
-      tipoUser: [null],   
-      cursoD: [null]
+      nome : ['', Validators.required],
+      data: ['', Validators.required],
+      telefone: ['', Validators.required],
+      rg: ['', Validators.required],
+      email: ['', Validators.required],
+      curso: ['', Validators.required],
+      disciplinas: ['', Validators.required],
+      tipoUser: ['', Validators.required],   
+      cursoD: ['', Validators.required]
    })}
 
   getCurso(){
@@ -108,7 +106,7 @@ export class CadastrarComponent implements OnInit {
     let fullName = this.form.get("nome")?.value;
     let rg = this.form.get("rg")?.value;
     let telefone =  this.form.get("telefone")?.value; 
-    let dataNascimento = this.datePipe.transform(this.form.get("data")?.value,'dd-MM-yyyy');
+    let dataNascimento = this.form.get("data")?.value;
     let role = this.form.get("tipoUser")?.value;
     let curso = this.form.get("curso")?.value;
     let disciplinas = this.form.get("disciplinas")?.value;
@@ -126,7 +124,7 @@ export class CadastrarComponent implements OnInit {
     let fullName = this.form.get("nome")?.value;
     let rg = this.form.get("rg")?.value;
     let telefone =  this.form.get("telefone")?.value; 
-    let dataNascimento = this.datePipe.transform(this.form.get("data")?.value,'dd-MM-yyyy');
+    let dataNascimento = this.form.get("data")?.value;
     let role = this.form.get("tipoUser")?.value;
     let curso;
     let disciplinas = [];
@@ -141,13 +139,12 @@ export class CadastrarComponent implements OnInit {
       dataNascimento: dataNascimento,
       role: role,  
     };
-    // Verificar se a dissiplina ou o curso foi selecionando e converter para int
+    // Verificar se a disciplina ou o curso foi selecionando e converter para int
     if(this.verificarCampos()){
       disciplinas = this.form.get("disciplinas")?.value;
       for(let i = 0; i< disciplinas.length; i++){
         disciplinasInt.push(parseInt(disciplinas[i]))
       }
-
 
       user.disciplinas = disciplinasInt;
     } else{
@@ -162,8 +159,6 @@ export class CadastrarComponent implements OnInit {
     this.close();
     location.reload();
   }
-
-
 
   close(){
     this.dialogRef.close();

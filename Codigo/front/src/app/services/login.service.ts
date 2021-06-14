@@ -2,12 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  
   url = 'https://teorema-prepara.herokuapp.com';
+
   constructor(
     private http: HttpClient,
     private _snackBar: MatSnackBar,
@@ -20,10 +23,10 @@ export class LoginService {
     this.http.put(`${ this.url }/api/v1/entrance/login`, user)
     .subscribe(
       (result) => {
+        this.setLocalStorage(result);
         this.redirecionar();
       },
       result => {
-        console.log(result)
         switch(result.status) {
           case 401:
             this._snackBar.open('Usuario não existente!', ' ', {
@@ -56,13 +59,18 @@ export class LoginService {
         }
       }
     );
-    
   }
+
+
+
   redirecionar(){
     this.ngZone.run(() => this.router.navigate(['/adm/usuarios'])).then();
   }
-  autenticar(){
-    return document.cookie;
+
+  setLocalStorage(user: any){
+    localStorage.setItem('id', user.id);
+    localStorage.setItem('nome', user.emailAddress);
+    localStorage.setItem('role', user.role);
   }
 
 }

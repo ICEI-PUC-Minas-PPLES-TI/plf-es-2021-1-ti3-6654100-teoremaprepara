@@ -1,4 +1,3 @@
-
 #body{
     margin: 2vh;
     display: flex;
@@ -61,20 +60,21 @@ td, th, th.mat-header-cell {
     height: 2.5rem;
     align-items: center;    
 }
-#adicao:hover{ 
-    width: 10vw;
-    border-radius: 52px;
-    mat-icon{
-        margin: 0 5%;
-    }
-    p{
-        display: block;
-        color: #ffffff;
-        margin: 0;
-        font-size: 1.8em;
-    }
-}
-
-// ::ng-deep .opcao:first-child{
-//     color: #7B7EFF !important;
+// #adicao:hover{ 
+//     width: 13vw;
+//     border-radius: 52px;
+//     mat-icon{
+//         margin: 0 5%;
+//     }
+//     p{
+//         display: block;
+//         color: #ffffff;
+//         margin: 0;
+//         font-size: 1.8em;
+//     }
 // }
+
+mat-paginator{
+    position: absolute;
+    bottom: 1vh;
+}

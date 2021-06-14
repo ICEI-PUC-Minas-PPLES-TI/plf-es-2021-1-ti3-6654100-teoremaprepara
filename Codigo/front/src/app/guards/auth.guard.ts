@@ -7,17 +7,19 @@ import { LoginService } from '../services/login.service';
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private loginService: LoginService,
     private router: Router
   ) { }
 
   canActivate(): Observable<boolean> | boolean {
 
-    // if (this.loginService.autenticar()){
-    //   console.log("Entrei");
-    //   return true;
-    // }
-    // this.router.navigate(['']);
-    return true;
+    if (this.autenticar()){
+      return true;
+    }
+    this.router.navigate(['']);
+    return false;  
+  }
+
+  autenticar(){
+  return localStorage.getItem('id');
   }
 }

@@ -1,19 +1,20 @@
 @import "../../../app.component.scss";
 #body{
-    height: 64vh;
+    height: 74vh;
     width: 45vw;
 }
 .close{
-    background-color: #436E8E;
+    background-color: #192038;
 }
 .icon, h3{
-    color: #436E8E;
+    color: #192038;
 }
 form{
     margin: 5vh 0;
 }
-form> div{
+.flex{
     display: flex;
+    align-items: center;
 }
 mat-form-field{
     width: 100%;
@@ -22,4 +23,40 @@ mat-form-field{
 }
 #tipoUser{
     width: 25%;
+}
+
+#disciplina{
+    width: 17vw;
+    height: 8vh !important;
+}
+.div-btn{
+    
+    margin: 5vh;
+}
+span {
+    color: #ac0000;
+}
+.dados{
+    margin: 5px;
+    display: flex;
+}
+.dados>p{
+    width: 50%;
+}
+.dadosUser{
+    margin: 5px;
+}
+#alerta{
+    height: 15vh;
+    width: 100%;
+    color: #ac0000;
+    text-align: center;
+    border: solid 1px #ac0000;
+    border-radius: 25px;
+}
+h5{
+    align-content: center !important;
+    margin: 5%;
+    margin: 7%;
+    font-size: 1.2rem;
 }
