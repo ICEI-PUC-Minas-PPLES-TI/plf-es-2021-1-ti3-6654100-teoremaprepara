@@ -17,25 +17,29 @@ export interface UserData {
 }
 
 
-
 @Component({
   selector: 'app-painel-usuarios',
   templateUrl: './painel-usuarios.component.html',
   styleUrls: ['./painel-usuarios.component.scss']
 })
 export class PainelUsuariosComponent implements OnInit {
+
   displayedColumns: string[] = ['id', 'name', 'progress'];
   dataSource: MatTableDataSource<UserData>;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
   user: User;
   nome: String;
   constructor(
     public dialog: MatDialog,
     private _service: PainelUsuariosService
     ) { 
+      //this.getUser();
     // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
     // this.dataSource = new MatTableDataSource(users);
+     
   }
 
   menu = [
@@ -67,6 +71,19 @@ export class PainelUsuariosComponent implements OnInit {
     this.getUser();
     
   }
+
+  configTab() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+  
+  getUser(){
+    this._service.getUser().subscribe(data => {
+      let result = data;
+      this.dataSource = new MatTableDataSource(result);
+      this.configTab()
+   })
+  }
   
 
   openDelet(id: String, nome: String) {
@@ -79,14 +96,12 @@ export class PainelUsuariosComponent implements OnInit {
     );
 
   }
+
   openAdd(){
     const dialogRef = this.dialog.open(CadastrarComponent);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -97,35 +112,31 @@ export class PainelUsuariosComponent implements OnInit {
   }
   
 
-  getUser(){
-    this._service.getUser().subscribe(data => {
-      let result = data;
-      this.dataSource = new MatTableDataSource(result);      
-   })
-  }
-  openEdit(id: String) {
-    this._service.getUserId(id).subscribe(
-      response => {
-        this.user = {
-          id: response.id,
-          fullName: response.fullName,
-          dataNascimento: response.dataNascimento,
-          telefone: response.telefone,
-          rg: response.rg,
-          emailAddress: response.emailAddress,
-          cursoId: response.curso.id,
-          cursoNome: response.curso.nome,
-        //   //turma: response.turma,
-          role: response.role,
-        //   // disciplinaId: response.disciplinaId,
-        //   // disciplinaNome: response.disciplinaNome,
-        }
-        const dialogRef = this.dialog.open(EditarComponent, {data: this.user});
-          //curso: [null],
-          //disciplina: [null],
-          //tipoUser: [this.user.role],  
-        }
-        );
+  
+  openEdit(id: string) {
+    // this._service.getUserId(id).subscribe(
+    //   response => {
+    //     this.user = {
+    //       id: response.id,
+    //       fullName: response.fullName,
+    //       dataNascimento: response.dataNascimento,
+    //       telefone: response.telefone,
+    //       rg: response.rg,
+    //       emailAddress: response.emailAddress,
+    //       cursoId: response.curso.id,
+    //       cursoNome: response.curso.nome,
+    //       //turma: response.turma,
+    //       role: response.role,
+    //     //   // disciplinaId: response.disciplinaId,
+    //     //   // disciplinaNome: response.disciplinaNome,
+    //     }
+    //     const dialogRef = this.dialog.open(EditarComponent, {data: this.user});
+    //       //curso: [null],
+    //       //disciplina: [null],
+    //       //tipoUser: [this.user.role],  
+    //     }
+    //     );
+    const dialogRef = this.dialog.open(EditarComponent, {data: id});
 
   }
 

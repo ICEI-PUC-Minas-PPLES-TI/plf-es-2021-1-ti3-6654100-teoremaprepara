@@ -1,1 +1,24 @@
-<p>adicionar-resultados works!</p>
+<div id="body">
+    <div class="header">
+        <div>
+            <mat-icon class="icon">fact_check</mat-icon>
+            <h3>{{this.data.name}}</h3>
+        </div>
+        <div class="close" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+
+    <h4>Selecione arquivo excel padrão com as notas de todos os alunos para este simulado </h4>
+
+
+    <button mat-flat-button class="arquivo-btn"  ><label for="arquivo">Selecionar arquivo</label>
+        <input type="file" name="arquivo" id="arquivo" (change)="onFileChange($event)" multiple="false"
+            accept=".xlsx">
+    </button> <span>{{ nomeArquivoSelecionado }}</span>
+
+    <div class="div-btn">
+        <button mat-flat-button class="cancelar-btn" (click)="close()" >Cancelar</button>
+        <button mat-flat-button class="confirmar-btn" (click)="confirmar()" >Confirmar</button>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { PainelSimuladosService } from '../services/painel-simulados.service';
 import { AdicionarResultadosComponent } from './adicionar-resultados/adicionar-resultados.component';
 
 @Component({
@@ -11,8 +12,10 @@ export class PainelSimuladosComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private _service: PainelSimuladosService
   ) { }
-
+  cursos: any;
+  simulados: any;
   menu = [
     {
       opcao: "Usuários",
@@ -40,9 +43,22 @@ export class PainelSimuladosComponent implements OnInit {
   panelOpenState = false;
   
   ngOnInit(): void {
+    this.getCurso();
   }
 
-  openAddResultados(id: String, nome: String) {
+  getCurso(){
+    this._service.getCurso().subscribe(data => {
+      this.cursos = data;
+   })
+  }
+
+  getSimuladoByCurso(id: any){
+    this._service.getSimuladoByCurso(id).subscribe(data => {
+      this.simulados = data;
+   })
+  }
+
+  openAddResultados(nome: String, id: String) {
     const dialogRef = this.dialog.open(AdicionarResultadosComponent,{
       data: {
         name: nome,

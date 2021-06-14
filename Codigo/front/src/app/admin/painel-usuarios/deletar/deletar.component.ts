@@ -30,6 +30,5 @@ export class DeletarComponent implements OnInit {
   }
    close(){
      this.dialogRef.close();
-     //location.reload()
    }
 }

@@ -1,0 +1,34 @@
+@import "../../../app.component.scss";
+
+#body{
+    height: 43vh;
+    width: 45vw;
+}
+.icon, h3{
+    color: #0080a0;
+}
+h4{
+    font-size: 1.2em;
+    margin-top: 3vh;
+}
+.close{
+    background-color: #0080a0;
+}
+span{
+    margin-left: 1vw;
+}
+.arquivo-btn{
+    margin: 2vw 0;
+    color: #0080a0;
+    background-color: #ffffff;
+    border: 1px solid #0080a0;
+}
+.div-btn{
+    margin-bottom: 2vw;
+}
+.label{
+    cursor: pointer;
+}
+input[type="file"] {
+    display: none;
+}
