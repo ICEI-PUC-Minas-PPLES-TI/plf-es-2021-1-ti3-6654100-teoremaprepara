@@ -55,9 +55,9 @@ export class AdicionarResultadosComponent implements OnInit {
   confirmar(){
     console.log(this.ResultadoSimulado);
     const userJSON = this.ResultadoSimulado;
-    this._service.inserirNotas(this.data.id);
-    this.close();
-    location.reload();
+    // this._service.inserirNotas(this.data.id);
+    // this.close();
+    // location.reload();
   }
 
   initForm(){
