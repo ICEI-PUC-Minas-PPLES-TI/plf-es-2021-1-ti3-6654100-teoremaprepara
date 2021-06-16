@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PainelSimuladosService {
 
-  constructor(private http: HttpClient,) { }
+  constructor(private http: HttpClient) { }
   url = 'https://teorema-prepara.herokuapp.com/api/v1/';
   
 
@@ -19,9 +19,9 @@ export class PainelSimuladosService {
     return this.http.get(`${this.url}simulado?curso=${id}`).pipe();
   }
   
-  inserirNotas(curso: any) {
+  inserirNotas(resultado: any) {
 
-    this.http.post(`${this.url}resultado/inserir-por-arquivo`, curso).subscribe(
+    this.http.post(`${this.url}resultado/inserir-por-tabela`, resultado).subscribe(
       (result) => {
         console.log("sucesso");
       },

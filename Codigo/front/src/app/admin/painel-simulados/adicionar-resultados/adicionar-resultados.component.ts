@@ -17,7 +17,7 @@ export interface Simulado {
 export class AdicionarResultadosComponent implements OnInit {
 
   form: FormGroup;
-  ResultadoSimulado: [][];
+  resultadoSimulado: [][];
   nomeArquivoSelecionado: string = "";
   constructor(
     private _service: PainelSimuladosService,
@@ -45,7 +45,7 @@ export class AdicionarResultadosComponent implements OnInit {
 
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
-      this.ResultadoSimulado = (XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      this.resultadoSimulado = (XLSX.utils.sheet_to_json(ws, { header: 1 }));
 
     };
 
@@ -53,11 +53,15 @@ export class AdicionarResultadosComponent implements OnInit {
   }
 
   confirmar(){
-    console.log(this.ResultadoSimulado);
-    const userJSON = this.ResultadoSimulado;
-    // this._service.inserirNotas(this.data.id);
-    // this.close();
-    // location.reload();
+    console.log(this.resultadoSimulado);
+    let simulado = {
+      simulado: this.data.id,
+      tabela: this.resultadoSimulado
+    }
+    const userJSON = JSON.stringify(simulado);
+    console.log(userJSON)
+    this._service.inserirNotas(userJSON);
+    this.close();
   }
 
   initForm(){

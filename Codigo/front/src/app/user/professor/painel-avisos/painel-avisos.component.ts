@@ -54,7 +54,7 @@ export class PainelAvisosComponent implements OnInit {
   }
 
   getUser(){
-    const id = "104";
+    const id = "4";
     this._service.getUserId(id).subscribe(data => {
         let result = data.disciplinas;
         this.disciplinas = result;

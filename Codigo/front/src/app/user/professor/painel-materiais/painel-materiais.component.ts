@@ -56,7 +56,7 @@ export class PainelMateriaisComponent implements OnInit {
   }
 
   getUser(){
-    const id = "104";
+    const id = "4";
     this._service.getUserId(id).subscribe(data => {
         let result = data.disciplinas;
         this.disciplinas = result;
@@ -72,7 +72,6 @@ export class PainelMateriaisComponent implements OnInit {
     );
   }
   redirecionar(url: string) {
-    //window.location.href ='https://qastack.com.br/programming/34338440/how-to-redirect-to-an-external-url-in-angular2';
     window.open(url, "_blank");
   }
 

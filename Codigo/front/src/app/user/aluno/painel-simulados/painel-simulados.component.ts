@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PainelSimuladosService } from '../../services/painel-simulados.service';
+
 
 @Component({
   selector: 'app-painel-simulados',
@@ -7,20 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PainelSimuladosComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _service: PainelSimuladosService) { }
+  simulados: any;
+  resultados: any;
   menu = [
     {
       opcao: "Disciplinas",
       icons: "menu_book",
       url: "aluno/disciplinas",
-      color: "color: #7B7EFF",
+      color: "color: #ffffff",
     },
     {
       opcao: "Simulados",
       icons: "article",
       url: "aluno/simulados",
-      color: "color: #ffffff",
+      color: "color: #7B7EFF",
     }
     
   ];
@@ -31,6 +34,20 @@ export class PainelSimuladosComponent implements OnInit {
   panelOpenState = false;
 
   ngOnInit(): void {
+    this.getResultadoSimuladoByAluno("1");
+  }
+
+  getSimuladoByCurso(id: any){
+    this._service.getSimuladoByCurso(id).subscribe(data => {
+      this.simulados = data;
+
+   })
+  }
+
+  getResultadoSimuladoByAluno(id: any){
+    this._service.getResultadoSimuladoByAluno(id).subscribe(data => {
+      this.resultados = data;
+    })
   }
 
 }

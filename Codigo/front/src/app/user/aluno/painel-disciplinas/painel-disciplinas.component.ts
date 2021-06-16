@@ -35,7 +35,7 @@ export class PainelDisciplinasComponent implements OnInit {
     {
       opcao: "Simulados",
       icons: "article",
-      url: "aluno/disciplinas",
+      url: "aluno/simulados",
       color: "color: #ffffff",
     }
     
@@ -53,7 +53,7 @@ export class PainelDisciplinasComponent implements OnInit {
   }
 
   getUser(){
-    const id = "18";
+    const id = "1";
     this._service.getCursoId(id).subscribe(data => {
         let result = data.disciplinas;
         this.disciplinas = result;

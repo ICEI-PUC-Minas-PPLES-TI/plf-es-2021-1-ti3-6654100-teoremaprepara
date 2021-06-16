@@ -10,8 +10,7 @@
     </div>
     <div id="materiais">
         <p id="conteudo"> Tipo documento: {{this.data.tipo}}</p>
-        <p> Link: {{this.data.url}}</p>
-        <p> Professor(a): {{this.data.professor}}</p>
+        <p (click)="redirecionar(this.data.url)"> Visualizar arquivo</p>
     </div>
 
 </div>

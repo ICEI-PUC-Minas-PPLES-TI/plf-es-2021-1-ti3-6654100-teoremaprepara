@@ -23,10 +23,16 @@ export class MaterialComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
   close() {
     this.dialogRef.close();
   }
+
+  redirecionar(url: string) {
+    window.open(url, "_blank");
+  }
+
 
 }

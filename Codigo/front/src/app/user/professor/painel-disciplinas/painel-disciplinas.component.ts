@@ -66,7 +66,7 @@ export class PainelDisciplinasComponent implements OnInit {
   }
   
   getUser(){
-    const id = "104";
+    const id = "4";
     this._service.getUserId(id).subscribe(data => {
         let result = data.disciplinas;
         this.dataSource = new MatTableDataSource(result);
@@ -74,7 +74,8 @@ export class PainelDisciplinasComponent implements OnInit {
         );
   }
 
-  openCadastrarAviso(id: String){
+  openCadastrarAviso(id: string){
+    console.log(id)
     this._service.getDisciplinaId(id).subscribe(
       response => {
         this.disciplina = {
@@ -87,7 +88,7 @@ export class PainelDisciplinasComponent implements OnInit {
       }
     )
   }
-  openCadastrarMaterial(id: String){
+  openCadastrarMaterial(id: string){
     this._service.getDisciplinaId(id).subscribe(
       response => {
         this.disciplina = {
