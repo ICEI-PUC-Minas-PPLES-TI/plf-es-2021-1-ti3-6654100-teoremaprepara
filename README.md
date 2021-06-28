@@ -42,6 +42,7 @@
 
 ## Documentos
 
+- [Vídeo - Apresentação Final](/Artefatos/Video-Apresentacao-Final.mp4)
 - [Atas de Reunião com o Cliente](/Artefatos/Atas)
 - [Documento de Visão](/Artefatos/Documento-de-Visao.pdf)
 - [Interface de Usuário](/Artefatos/Interface-de-Usuario.pdf)
