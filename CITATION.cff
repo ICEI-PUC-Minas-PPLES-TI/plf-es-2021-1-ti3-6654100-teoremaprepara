@@ -1,0 +1,30 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: Teorema Preparatório
+authors:
+  - family-names: Luis da Silva
+    given-names: André
+  - family-names: Bicalho Lana Corrêa Fernandes
+    given-names: Arthur
+  - family-names: Márcia Pereira Sardinha
+    given-names: Érika
+  - family-names: Julio Silva dos Santos
+    given-names: Guilherme
+  - family-names: Lélis de Carvalho
+    given-names: Ítalo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Alonso Veloso
+    given-names: Eveline
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Amaral Baroni De Carvalho
+    given-names: Juliana
+keywords:
+  - Professor
+  - Aluno
+  - Divulgação
+repository-code: https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti3-6654100-teoremaprepara
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2021-06-20
